@@ -2,4 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  div.form-group
+    form(action = '/', method = 'POST')
+      p
+        input(type="email", id="email", name="email", placeholder="IBM Intranet Email ID")
+        input(type="password", id="password", name="password", placeholder="IBM Intranet Password")
+      input(type="submit", value="LOGIN")
+  //script(type='text/javascript', src='/javascripts/index.js')
