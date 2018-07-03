@@ -10,7 +10,7 @@ Install [couchDB](https://couchdb.apache.org/) and create a database <code> ibm 
 
 To install, clone the repository and install node dependencies.
 
-<code>$ git clone git@github.com:username/Time2Revenue.git</code>
+<code>$ git clone https://github.com/asmaurya95/Time2Revenue.git
 
 <code>$ cd Time2Revenue</code>
 
