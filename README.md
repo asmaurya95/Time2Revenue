@@ -4,11 +4,43 @@ A Web application to track project from inception to revenue realization.
 
 ## Dependencies
 
-Install [couchDB](https://couchdb.apache.org/) and create a database <code> ibm </code> which contains user credentials (if not already created) 
+Install [couchDB](https://couchdb.apache.org/) and make sure the server is up and running.
 
 ## Instructions
 
-To install, clone the repository and install node dependencies.
+#### Setting up databases :
+
+Open the browser and navigate to http://localhost:5984/_utils/ 
+
+This would open [fauxton](https://couchdb.apache.org/fauxton-visual-guide/index.html), a native web based interface built into couchDB.
+
+Create a database named <code> ibm </code> and create a few documents containing the user credentials, username(email) and password.
+
+Sample document (JSON)
+```
+{  
+  "_id": "<predefined by couchdb>",
+  
+  "_rev": "<predefined by couchdb>",
+ 
+  "username": "pm@ibm.com",
+   
+  "password": 1234 
+}
+
+```
+Create a [view](http://docs.couchdb.org/en/2.1.1/ddocs/views/intro.html) with design-name <code> users </code> and view-name <code> login </code>. 
+
+Map function :
+
+```
+function (doc) {
+    emit(doc.username, doc.password); 
+}
+```
+This view would emit username as <code> key </code> and password as <code> value </code>.
+
+#### To install, clone the repository and install node dependencies :
 
 <code>$ git clone https://github.com/asmaurya95/Time2Revenue.git </code>
 
@@ -16,8 +48,7 @@ To install, clone the repository and install node dependencies.
 
 <code>$ npm install</code>
 
-
-Start the server :
+#### Start the server :
 
 <code>$ npm start</code> 
 
