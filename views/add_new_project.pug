@@ -1,0 +1,215 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='/stylesheets/style.css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+.container
+  h1(style='color:#CACACA')
+    u Add New Project
+  br
+  br
+  form(method='POST' action='add_new_project')
+    .col-md-4
+    .col-md-4
+      h2(style='color:#CACACA')
+        b 1. Project Details
+      br
+      .form-group
+        label(for='text' style='color:#CACACA') Customer Name:
+        input#cust_name.form-control(type='text' placeholder='Enter Customer Name')
+      .form-group
+        label(for='text' style='color:#CACACA') Project Name:
+        input#proj_name.form-control(type='text' placeholder='Enter Project Name')
+      .form-group
+        label(for='text' style='color:#CACACA') Contract Type:
+        input#contr_typ.form-control(type='text' placeholder='Enter Contract Type')
+      .form-group
+        label(for='date' style='color:#CACACA') Contract End Date:
+        input#contr_end.form-control(type='date' placeholder='Enter Contract End Date')
+    .col-md-4
+    br
+    .col-md-12
+      h2(style='color:#CACACA')
+        b
+          | 2. TTR
+          b
+      br
+      .table-responsive
+        table.table(style='color:#CACACA')
+          thead
+            tr
+              th Phase Name
+              th Planned Start Date
+              th Planned End Date
+              th Actual Start Date
+              th Actual End Date
+              th Comments
+          tbody
+            tr
+              td Discovery Phase
+              td
+                .form-group
+                  input#Dis_plan_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Dis_plan_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Dis_act_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Dis_act_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Dis_comment.form-control(type='text' placeholder='')
+          tbody
+            tr
+              td Design Phase
+              td
+                .form-group
+                  input#Des_plan_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Des_plan_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Des_act_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Des_act_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Des_comment.form-control(type='text' placeholder='')
+          tbody
+            tr
+              td Environment Readiness Phase
+              td
+                .form-group
+                  input#env_plan_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#env_plan_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#env_act_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#env_act_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#env_comment.form-control(type='text' placeholder='')
+          tbody
+            tr
+              td Development Phase
+              td
+                .form-group
+                  input#Dev_plan_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Dev_plan_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Dev_act_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Dev_act_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#Dev_comment.form-control(type='text' placeholder='')
+          tbody
+            tr
+              td Testing Phase
+              td
+                .form-group
+                  input#tes_plan_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#tes_plan_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#tes_act_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#tes_act_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#tes_comment.form-control(type='text' placeholder='')
+          tbody
+            tr
+              td Go-Live
+              td
+                .form-group
+                  input#golv_plan_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#golv_plan_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#golv_act_strdt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#golv_act_enddt.form-control(type='date' placeholder='')
+              td
+                .form-group
+                  input#golv_comment.form-control(type='text' placeholder='')
+    .col-md-2
+    .col-md-8
+      h2(style='color:#CACACA')
+        b 3. Effort Details (in Hours)
+      br
+      .table-responsive
+        table.table(style='color:#CACACA')
+          thead
+            tr
+              th
+              th Planned
+              th Actual
+          tbody
+            tr
+              td Lead Mapper
+              td
+                .form-group
+                  input#ldmp_plan.form-control(type='number' placeholder='')
+              td
+                .form-group
+                  input#ldmp_act.form-control(type='number' placeholder='')
+          tbody
+            tr
+              td Mapper
+              td
+                .form-group
+                  input#mp_plan.form-control(type='number' placeholder='')
+              td
+                .form-group
+                  input#mp_act.form-control(type='number' placeholder='')
+          tbody
+            tr
+              td Lead Implementer
+              td
+                .form-group
+                  input#ldimp_plan.form-control(type='number' placeholder='')
+              td
+                .form-group
+                  input#ldimp_act.form-control(type='number' placeholder='')
+          tbody
+            tr
+              td Implementer
+              td
+                .form-group
+                  input#imp_plan.form-control(type='number' placeholder='')
+              td
+                .form-group
+                  input#imp_act.form-control(type='number' placeholder='')
+          tbody
+            tr
+              td PM
+              td
+                .form-group
+                  input#pm_plan.form-control(type='number' placeholder='')
+              td
+                .form-group
+                  input#pm_act.form-control(type='number' placeholder='')
+        button.btn.btn-primary.btn-block(type='submit') Submit
+.col-md-2
