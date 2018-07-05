@@ -12,6 +12,22 @@ module.exports = function(passport) {
     }
   );
 
+  /*GET add new project page */
+  router.get('/newproject',
+    require('connect-ensure-login').ensureLoggedIn(),
+    function(req, res) {
+      res.render('newproject', { title: 'Time2Revenue' });
+    }
+  );
+
+  /*POST add new project page*/
+  router.post('/newproject',
+    require('connect-ensure-login').ensureLoggedIn(),
+    function(req, res) {
+      res.render('newproject', { title: 'Time2Revenue' });
+    }
+  );
+  
   /* GET Login page. */
   router.get('/login', function(req, res) {
     res.render('login', { title: 'Time2Revenue' });

@@ -22,14 +22,18 @@ br
     b
       | Edit Existing project
       b  Click below
-  button.btn.btn-default(type='button' style='width:300px') Show Existing Project
+  //button.btn.btn-default(type='button' style='width:300px') Show Existing Project
+  form(action = '/', method = 'GET')
+    input(type="submit", value="Show Existing Project")
 .col-md-3
   p(style='color:#CACACA;font-size:19px')
     | If you want to 
     b
       | Add New project
       b    Click below
-  button.btn.btn-default(type='button' style='width:300px') Add New Project
+  //button.btn.btn-default(type='button' style='width:300px') Add New Project
+  form(action = '/newproject', method = 'GET')
+    input(type="submit", value="Add New Project")
 br
 .col-md-4
 .col-md-4
