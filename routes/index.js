@@ -8,7 +8,7 @@ module.exports = function(passport) {
   router.get('/',
     require('connect-ensure-login').ensureLoggedIn(),
     function(req, res) {
-      res.render('index', { title: 'Time2Revenue' });
+      res.render('welcome', { title: 'Time2Revenue' });
     }
   );
 
@@ -17,7 +17,7 @@ module.exports = function(passport) {
     res.render('login', { title: 'Time2Revenue' });
     }
   );
-  
+
   /* POST Login page */
   router.post('/login',
     passport.authenticate('local', {

@@ -4,13 +4,13 @@ body {
   color: #CACACA;
   font-style: italic;
   background-color: white;
-  background-image: url("images/1.jpg");
+  background-image: url("../images/1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: 100%;
   text-align: center;
- 
+
 }
 
 a {
