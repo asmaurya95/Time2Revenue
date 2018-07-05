@@ -1,10 +1,20 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px Comic Sans MS;
+  color: #CACACA;
+  font-style: italic;
   background-color: white;
+  background-image: url("images/1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
   text-align: center;
+ 
 }
 
 a {
   color: #00B7FF;
+  padding: 40px;
 }
+s
