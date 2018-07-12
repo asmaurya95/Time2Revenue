@@ -10,7 +10,7 @@ head
     u Add New Project
   br
   br
-  form(method='POST' action='/newproject')
+  form(method='POST' action="/newproject")
     .col-md-4
     .col-md-4
       h2(style='color:#CACACA')
@@ -18,16 +18,16 @@ head
       br
       .form-group
         label(for='text' style='color:#CACACA') Customer Name:
-        input#cust_name.form-control(type='text' placeholder='Enter Customer Name')
+        input#cust_name.form-control(type='text' placeholder='Enter Customer Name' name='cust_name' required)
       .form-group
         label(for='text' style='color:#CACACA') Project Name:
-        input#proj_name.form-control(type='text' placeholder='Enter Project Name')
+        input#proj_name.form-control(type='text' placeholder='Enter Project Name' name='proj_name' required)
       .form-group
         label(for='text' style='color:#CACACA') Contract Type:
-        input#contr_typ.form-control(type='text' placeholder='Enter Contract Type')
+        input#contr_typ.form-control(type='text' placeholder='Enter Contract Type' name='contr_typ' required)
       .form-group
         label(for='date' style='color:#CACACA') Contract End Date:
-        input#contr_end.form-control(type='date' placeholder='Enter Contract End Date')
+        input#contr_end.form-control(type='date' placeholder='Enter Contract End Date' name='contr_end' required)
     .col-md-4
     br
     .col-md-12
@@ -51,109 +51,109 @@ head
               td Discovery Phase
               td
                 .form-group
-                  input#Dis_plan_strdt.form-control(type='date' placeholder='')
+                  input#Dis_plan_strdt.form-control(type='date' placeholder='' name='Dis_plan_strdt')
               td
                 .form-group
-                  input#Dis_plan_enddt.form-control(type='date' placeholder='')
+                  input#Dis_plan_enddt.form-control(type='date' placeholder='' name='Dis_plan_enddt')
               td
                 .form-group
-                  input#Dis_act_strdt.form-control(type='date' placeholder='')
+                  input#Dis_act_strdt.form-control(type='date' placeholder='' name='Dis_act_strdt')
               td
                 .form-group
-                  input#Dis_act_enddt.form-control(type='date' placeholder='')
+                  input#Dis_act_enddt.form-control(type='date' placeholder='' name='Dis_act_enddt')
               td
                 .form-group
-                  input#Dis_comment.form-control(type='text' placeholder='')
+                  input#Dis_comment.form-control(type='text' placeholder='' name='Dis_comment')
           tbody
             tr
               td Design Phase
               td
                 .form-group
-                  input#Des_plan_strdt.form-control(type='date' placeholder='')
+                  input#Des_plan_strdt.form-control(type='date' placeholder='' name='Des_plan_strdt')
               td
                 .form-group
-                  input#Des_plan_enddt.form-control(type='date' placeholder='')
+                  input#Des_plan_enddt.form-control(type='date' placeholder='' name='Des_plan_enddt')
               td
                 .form-group
-                  input#Des_act_strdt.form-control(type='date' placeholder='')
+                  input#Des_act_strdt.form-control(type='date' placeholder='' name='Des_act_strdt')
               td
                 .form-group
-                  input#Des_act_enddt.form-control(type='date' placeholder='')
+                  input#Des_act_enddt.form-control(type='date' placeholder='' name='Des_act_enddt')
               td
                 .form-group
-                  input#Des_comment.form-control(type='text' placeholder='')
+                  input#Des_comment.form-control(type='text' placeholder='' name='Des_comment')
           tbody
             tr
               td Environment Readiness Phase
               td
                 .form-group
-                  input#env_plan_strdt.form-control(type='date' placeholder='')
+                  input#env_plan_strdt.form-control(type='date' placeholder='' name='env_plan_strdt')
               td
                 .form-group
-                  input#env_plan_enddt.form-control(type='date' placeholder='')
+                  input#env_plan_enddt.form-control(type='date' placeholder='' name='env_plan_enddt')
               td
                 .form-group
-                  input#env_act_strdt.form-control(type='date' placeholder='')
+                  input#env_act_strdt.form-control(type='date' placeholder='' name='env_act_strdt')
               td
                 .form-group
-                  input#env_act_enddt.form-control(type='date' placeholder='')
+                  input#env_act_enddt.form-control(type='date' placeholder='' name='env_act_enddt')
               td
                 .form-group
-                  input#env_comment.form-control(type='text' placeholder='')
+                  input#env_comment.form-control(type='text' placeholder='' name='env_comment')
           tbody
             tr
               td Development Phase
               td
                 .form-group
-                  input#Dev_plan_strdt.form-control(type='date' placeholder='')
+                  input#Dev_plan_strdt.form-control(type='date' placeholder='' name='Dev_plan_strdt')
               td
                 .form-group
-                  input#Dev_plan_enddt.form-control(type='date' placeholder='')
+                  input#Dev_plan_enddt.form-control(type='date' placeholder='' name='Dev_plan_enddt')
               td
                 .form-group
-                  input#Dev_act_strdt.form-control(type='date' placeholder='')
+                  input#Dev_act_strdt.form-control(type='date' placeholder='' name='Dev_act_strdt')
               td
                 .form-group
-                  input#Dev_act_enddt.form-control(type='date' placeholder='')
+                  input#Dev_act_enddt.form-control(type='date' placeholder='' name='Dev_act_enddt')
               td
                 .form-group
-                  input#Dev_comment.form-control(type='text' placeholder='')
+                  input#Dev_comment.form-control(type='text' placeholder='' name='Dev_comment')
           tbody
             tr
               td Testing Phase
               td
                 .form-group
-                  input#tes_plan_strdt.form-control(type='date' placeholder='')
+                  input#tes_plan_strdt.form-control(type='date' placeholder='' name='tes_plan_strdt')
               td
                 .form-group
-                  input#tes_plan_enddt.form-control(type='date' placeholder='')
+                  input#tes_plan_enddt.form-control(type='date' placeholder='' name='tes_plan_enddt')
               td
                 .form-group
-                  input#tes_act_strdt.form-control(type='date' placeholder='')
+                  input#tes_act_strdt.form-control(type='date' placeholder='' name='tes_act_strdt')
               td
                 .form-group
-                  input#tes_act_enddt.form-control(type='date' placeholder='')
+                  input#tes_act_enddt.form-control(type='date' placeholder='' name='tes_act_enddt')
               td
                 .form-group
-                  input#tes_comment.form-control(type='text' placeholder='')
+                  input#tes_comment.form-control(type='text' placeholder='' name='tes_comment')
           tbody
             tr
               td Go-Live
               td
                 .form-group
-                  input#golv_plan_strdt.form-control(type='date' placeholder='')
+                  input#golv_plan_strdt.form-control(type='date' placeholder='' name='golv_plan_strdt')
               td
                 .form-group
-                  input#golv_plan_enddt.form-control(type='date' placeholder='')
+                  input#golv_plan_enddt.form-control(type='date' placeholder='' name='golv_plan_enddt')
               td
                 .form-group
-                  input#golv_act_strdt.form-control(type='date' placeholder='')
+                  input#golv_act_strdt.form-control(type='date' placeholder='' name='golv_act_strdt')
               td
                 .form-group
-                  input#golv_act_enddt.form-control(type='date' placeholder='')
+                  input#golv_act_enddt.form-control(type='date' placeholder='' name='golv_act_enddt')
               td
                 .form-group
-                  input#golv_comment.form-control(type='text' placeholder='')
+                  input#golv_comment.form-control(type='text' placeholder='' name='golv_comment')
     .col-md-2
     .col-md-8
       h2(style='color:#CACACA')
@@ -171,45 +171,45 @@ head
               td Lead Mapper
               td
                 .form-group
-                  input#ldmp_plan.form-control(type='number' placeholder='')
+                  input#ldmp_plan.form-control(type='number' placeholder=''  name='ldmp_plan')
               td
                 .form-group
-                  input#ldmp_act.form-control(type='number' placeholder='')
+                  input#ldmp_act.form-control(type='number' placeholder='' name='ldmp_act')
           tbody
             tr
               td Mapper
               td
                 .form-group
-                  input#mp_plan.form-control(type='number' placeholder='')
+                  input#mp_plan.form-control(type='number' placeholder='' name='mp_plan')
               td
                 .form-group
-                  input#mp_act.form-control(type='number' placeholder='')
+                  input#mp_act.form-control(type='number' placeholder='' name='mp_act')
           tbody
             tr
               td Lead Implementer
               td
                 .form-group
-                  input#ldimp_plan.form-control(type='number' placeholder='')
+                  input#ldimp_plan.form-control(type='number' placeholder='' name='ldimp_plan')
               td
                 .form-group
-                  input#ldimp_act.form-control(type='number' placeholder='')
+                  input#ldimp_act.form-control(type='number' placeholder='' name='ldimp_act')
           tbody
             tr
               td Implementer
               td
                 .form-group
-                  input#imp_plan.form-control(type='number' placeholder='')
+                  input#imp_plan.form-control(type='number' placeholder='' name='imp_plan')
               td
                 .form-group
-                  input#imp_act.form-control(type='number' placeholder='')
+                  input#imp_act.form-control(type='number' placeholder='' name='imp_act')
           tbody
             tr
               td PM
               td
                 .form-group
-                  input#pm_plan.form-control(type='number' placeholder='')
+                  input#pm_plan.form-control(type='number' placeholder='' name='pm_plan')
               td
                 .form-group
-                  input#pm_act.form-control(type='number' placeholder='')
+                  input#pm_act.form-control(type='number' placeholder='' name='pm_act')
         button.btn.btn-primary.btn-block(type='submit') Submit
 .col-md-2

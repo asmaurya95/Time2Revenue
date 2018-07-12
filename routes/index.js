@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var db = require('../models/projects');
 
 module.exports = function(passport) {
 
@@ -24,13 +25,15 @@ module.exports = function(passport) {
   router.post('/newproject',
     require('connect-ensure-login').ensureLoggedIn(),
     function(req, res) {
-      res.render('newproject', { title: 'Time2Revenue' });
+      var projectData = req.body;
+      db.insertDocument(projectData);
+      res.send(projectData);
     }
   );
-  
+
   /* GET Login page. */
   router.get('/login', function(req, res) {
-    res.render('login', { title: 'Time2Revenue' });
+    res.render('login', { title: 'Time to Revenue' });
     }
   );
 

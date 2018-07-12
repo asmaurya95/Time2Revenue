@@ -6,7 +6,7 @@ block content
   div.form-group
     form(action = '/login', method = 'POST')
       p
-        input(type="email", id="email", name="email", placeholder="IBM Intranet Email ID",)
-        input(type="password", id="password", name="password", placeholder="IBM Intranet Password")
+        input(type="email", id="email", name="email", placeholder="IBM Intranet Email ID", required)
+        input(type="password", id="password", name="password", placeholder="IBM Intranet Password", required)
       input(type="submit", value="LOGIN")
   //script(type='text/javascript', src='/javascripts/index.js')
