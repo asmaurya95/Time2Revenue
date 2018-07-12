@@ -10,11 +10,11 @@ Install [couchDB](https://couchdb.apache.org/) and make sure the server is up an
 
 #### Setting up databases :
 
-Open the browser and navigate to http://localhost:5984/_utils/ 
+- Open the browser and navigate to http://localhost:5984/_utils/ 
 
 This would open [fauxton](https://couchdb.apache.org/fauxton-visual-guide/index.html), a native web based interface built into couchDB.
 
-Create a database named <code> ibm </code> and create a few documents containing the user credentials, username(email) and password.
+- Create a database named <code> ibm </code> and create a few documents containing the user credentials, username(email) and password.
 
 Sample document (JSON)
 ```
@@ -29,7 +29,7 @@ Sample document (JSON)
 }
 
 ```
-Create a [view](http://docs.couchdb.org/en/2.1.1/ddocs/views/intro.html) with design-name <code> users </code> and view-name <code> login </code>. 
+- Create a [view](http://docs.couchdb.org/en/2.1.1/ddocs/views/intro.html) with design-name <code> users </code> and view-name <code> login </code>. 
 
 Map function :
 
@@ -39,6 +39,8 @@ function (doc) {
 }
 ```
 This view would emit username as <code> key </code> and password as <code> value </code>.
+
+- Create another database named <code> projects </code> where all project data will be stored.
 
 #### To install, clone the repository and install node dependencies :
 
