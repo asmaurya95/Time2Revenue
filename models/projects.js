@@ -1,5 +1,6 @@
 var nano = require('nano')('http://localhost:5984');
 var db = nano.use('projects');
+var doc = nano.db.use('projects');
 
 exports.insertDocument = function(doc) {
   process.nextTick(function() {
@@ -19,4 +20,40 @@ exports.updateDocument = function(doc, id, callback) {
       console.log(doc);
     })
   });
+}
+
+exports.getDocument = function(proj_name, callback) {
+  process.nextTick(function() {
+    doc.view('findproject', 'findbyname',{ 'key': proj_name }, function(err, body) {
+      var record;
+        if(err) console.log("Error Occurred !");
+        else {
+          body.rows.forEach(function(doc){
+            record = doc;
+          });
+        }
+        //console.log(record.value);
+        if(record)
+          return callback(null, record.value)
+    });
+})
+}
+
+exports.getNames = function(callback) {
+  process.nextTick(function() {
+    doc.view('findproject', 'findbyname', function(err, body) {
+      var record = new Array();
+        if(err) console.log("Error Occurred !");
+        else {
+          body.rows.forEach(function(doc){
+            record.push(doc.value.proj_name);
+          });
+        }
+        //console.log(record.value);
+        if(record) {
+          record.shift();
+          return callback(null, record);
+        }
+    });
+})
 }
