@@ -1,0 +1,39 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
+.container
+  canvas#bar-chart-grouped(width='800' height='450')
+script.
+  // Bar chart
+  let myChart = document.getElementById('bar-chart-grouped').getContext('2d');
+  // //Global Options
+  // Chart.defaults.global.defaultFontFamily = 'Lato';
+  //Chart.defaults.global.defaultFontSize = 18;
+  // Chart.defaults.global.defaultFontColor = '#777';
+  let massPopChart = new Chart(document.getElementById("bar-chart-grouped"), {
+  type: 'bar',
+  data: {
+  labels: ["Discovery Phase", "Design Phase", "Development Phase", "Testing Phase"],
+  datasets: [
+  {
+  label: "Actual",
+  backgroundColor: "#3e95cd",
+  data: [133,221,783,2478]
+  }, {
+  label: "Planned",
+  backgroundColor: "#ff9800",
+  data: [408,547,675,734]
+  }
+  ]
+  },
+  options: {
+  title: {
+  display: true,
+  text: 'Schedule Variance - Phase Wise'
+  }
+  }
+  });
