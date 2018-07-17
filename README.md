@@ -58,6 +58,16 @@ This view would emit username as <code> key </code> and document as <code> value
 
 - Create another database named <code> projects </code> where all project data will be stored.
 
+- Create a [view](http://docs.couchdb.org/en/2.1.1/ddocs/views/intro.html) with design-name <code> findproject </code> and view-name <code> findbyname </code>.
+
+Map function :
+
+```
+function (doc) {
+    emit(doc.username, doc);
+}
+```
+
 #### To install, clone the repository and install node dependencies :
 
 <code>$ git clone https://github.com/asmaurya95/Time2Revenue.git </code>
