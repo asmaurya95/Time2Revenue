@@ -51,9 +51,9 @@ exports.getNames = function(callback) {
         }
         //console.log(record.value);
         if(record) {
-          record.shift();
           return callback(null, record);
         }
+        return callback(null, null);
     });
 })
 }
