@@ -28,8 +28,10 @@ passport.deserializeUser(function(id, done) {
   db.findById(id, function (err, user) {
     if (err || user.length == 0)
       done(err);
-    else
+    else{
+      //console.log(user);
       done(null, user);
+    }
   });
 });
 
@@ -50,16 +52,24 @@ passport.use(new LocalStrategy(
       //console.log(user.id);
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
-      if (user.value != password) { return done(null, false); }
+      if (user.value.password != password) { return done(null, false); }
       return done(null, user);
     });
 }));
 
 var app = express();
 
+var notAuthorized = {
+  redirect: '/dashboard'
+};
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
+app.set('permission', {
+  role: 'group',
+  notAuthorized: notAuthorized
+});
 
 // other middleware setup, add middleware libraries into request handling chain
 app.use(logger('dev'));

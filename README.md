@@ -10,35 +10,51 @@ Install [couchDB](https://couchdb.apache.org/) and make sure the server is up an
 
 #### Setting up databases :
 
-- Open the browser and navigate to http://localhost:5984/_utils/ 
+- Open the browser and navigate to http://localhost:5984/_utils/
 
 This would open [fauxton](https://couchdb.apache.org/fauxton-visual-guide/index.html), a native web based interface built into couchDB.
 
-- Create a database named <code> ibm </code> and create a few documents containing the user credentials, username(email) and password.
+- Create a database named <code> ibm </code> and create a few documents containing the user credentials, username(email), group(program-manager / service-manager) and password.
 
-Sample document (JSON)
+Program-Manager (Sample) :
 ```
 {  
   "_id": "<predefined by couchdb>",
-  
-  "_rev": "<predefined by couchdb>",
- 
-  "username": "pm@ibm.com",
-   
-  "password": 1234 
-}
 
+  "_rev": "<predefined by couchdb>",
+
+  "username": "pm@ibm.com",
+
+  "password": 1234,
+
+  "group": "program-manager"
+}
 ```
-- Create a [view](http://docs.couchdb.org/en/2.1.1/ddocs/views/intro.html) with design-name <code> users </code> and view-name <code> login </code>. 
+
+Service-Manager (Sample) :
+```
+{  
+  "_id": "<predefined by couchdb>",
+
+  "_rev": "<predefined by couchdb>",
+
+  "username": "sm@ibm.com",
+
+  "password": 1234,
+
+  "group": "service-manager"
+}
+```
+- Create a [view](http://docs.couchdb.org/en/2.1.1/ddocs/views/intro.html) with design-name <code> users </code> and view-name <code> login </code>.
 
 Map function :
 
 ```
 function (doc) {
-    emit(doc.username, doc.password); 
+    emit(doc.username, doc);
 }
 ```
-This view would emit username as <code> key </code> and password as <code> value </code>.
+This view would emit username as <code> key </code> and document as <code> value </code>.
 
 - Create another database named <code> projects </code> where all project data will be stored.
 
@@ -52,9 +68,9 @@ This view would emit username as <code> key </code> and password as <code> value
 
 #### Start the server :
 
-<code>$ npm start</code> 
+<code>$ npm start</code>
 
-OR 
+OR
 
 (For developers)
 
@@ -62,4 +78,4 @@ OR
 
 This would enable the server to automatically restart on any changes made to the script while the server is already running
 
-Open the browser and navigate to http://localhost:3000/ to see the application in action. 
+Open the browser and navigate to http://localhost:3000/ to see the application in action.

@@ -10,3 +10,13 @@ exports.insertDocument = function(doc) {
     );
   });
 }
+
+exports.updateDocument = function(doc, id, callback) {
+  process.nextTick(function() {
+    db.get(id, function(error, existing) {
+      if(!error) doc._rev = existing._rev;
+      db.insert(doc, id, callback);
+      console.log(doc);
+    })
+  });
+}
