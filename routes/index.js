@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var db = require('../models/projects');
-var projectID = "f14060e015f2d8da00a00e10f2002a9d";
+var proj_name;
 
 module.exports = function(passport) {
 
@@ -28,7 +28,7 @@ module.exports = function(passport) {
     function(req, res) {
       var projectData = req.body;
       db.insertDocument(projectData);
-      res.send(projectData);
+      res.redirect('/');
     }
   );
 
@@ -51,7 +51,10 @@ module.exports = function(passport) {
   router.get('/editproject',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
     function(req, res) {
-      res.render('editproject', {});
+      db.getDocument(proj_name, function(err, doc) {
+        console.log(doc);
+        res.render('editproject', { cust_name: doc.cust_name, proj_name: doc.proj_name });
+      });
     }
   );
 
@@ -59,12 +62,35 @@ module.exports = function(passport) {
   router.post('/editproject',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
     function(req, res) {
-      var projectData = req.body;
-      db.updateDocument(projectData, projectID, function(err, res) {
-        if(err) console.log('No Update');
-        console.log('Updated Succesfully')
+      db.getDocument(proj_name, function(err, doc) {
+          var projectData = req.body;
+          db.updateDocument(projectData, doc._id, function(err, res) {
+            if(err) console.log('No Update');
+            console.log('Updated Succesfully')
+          });
+          res.redirect('/');
       });
-      res.send(projectData);
+    }
+  );
+
+  /*GET Existing Projects Page*/
+  router.get('/edit',
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    function(req, res) {
+      db.getNames(function(err, doc){
+          console.log(doc);
+          res.render('edit', { projlist: doc});
+      });
+    }
+  );
+
+  /*POST Existing Projects Page*/
+  router.post('/edit',
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    function(req, res) {
+      console.log(req.body);
+      proj_name = req.body.proj_name;
+      res.redirect('/editproject');
     }
   );
 
