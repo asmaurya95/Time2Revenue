@@ -64,7 +64,7 @@ Map function :
 
 ```
 function (doc) {
-    emit(doc.username, doc);
+    emit(doc.proj_name, doc);
 }
 ```
 
