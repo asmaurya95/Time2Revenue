@@ -1,0 +1,28 @@
+doctype html
+head
+  title Existing Project
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='/stylesheets/existing.css')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  //script(src="/javascripts/edit")
+.container
+  .col-md-4
+  .col-md-4
+    br
+    br
+    br
+    h2(style='color:#CACACA;font-size:30px') Choose a Project to Edit.
+    br
+    br
+    each val in projlist  
+      br
+      div.form-group
+        form(action = '/edit', method = 'POST')
+          input(type="text", id="proj_name", name="proj_name", value=val, readonly) 
+          |
+          |
+          input(type="submit", value="EDIT")
+      br            
+.col-md-4

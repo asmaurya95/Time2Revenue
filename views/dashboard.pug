@@ -1,0 +1,83 @@
+doctype html
+head
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+.container
+  h2(style='color:#CACACA;font-size:30px;')
+    | Result Dashboard
+    br
+    br
+// <div class="col-md-3"></div>
+.col-md-6
+  p(style='color:#CACACA;font-size:19px;')
+    | This is to
+    br
+    b
+      | Select Project Name
+      b  Click below
+  // button.btn.btn-default(type='button' style='width:300px') Show Existing Project
+  button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+    | Project Name 
+    span.caret
+  ul.dropdown-menu(style='right:20px;')
+    li
+      a(href='#') HTML
+    li
+      a(href='#') CSS
+    li
+      a(href='#') JavaScript
+.col-md-6.dropdown
+  p(style='color:#CACACA;font-size:19px;')
+    | This is to
+    br
+    b
+      | Select Project Phase
+      b    Click below
+  // button.btn.btn-default(type='button' style='width:300px') Add New Project
+  button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+    | Project Phase 
+    span.caret
+  ul.dropdown-menu(style='right:20px;')
+    li
+      a(href='#') Discovery Phase
+    li
+      a(href='#') Design Phase
+    li
+      a(href='#') Environment Readiness Phase
+    li
+      a(href='#') Development Phase
+    li
+      a(href='#') Testing Phase
+    li
+      a(href='#') Go-Live
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+br
+.col-md-12
+  p(style='color:#CACACA;font-size:19px;')
+    | This is to
+    br
+    b
+      | Check Result graphs
+      b  Click below
+  // button.btn.btn-default(type='button' style='width:300px') Add New Project
+  form(action='/combined.pug', method='GET')
+    input.btn.btn-primary.dropdown-toggle(type='submit', value='Result Graphs')
+br
+.col-md-4
+
+

@@ -1,0 +1,214 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible', content='ie=edge')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+// TTR
+.container
+  canvas#chart1(width='800', height='450')
+  br
+  br
+  br
+  br
+  br
+// svpw
+.container
+  canvas#chart3(width='800', height='450')
+  br
+  br
+  br
+  br
+  br
+// effdiv
+.container
+  canvas#chart2(width='800', height='450')
+  br
+  br
+  br
+  br
+  br
+// cost
+.container
+  canvas#chart4(width='800', height='450')
+script.
+  //ttr
+  let myChart = document.getElementById('chart1').getContext('2d');
+  //Global Options
+  // Chart.defaults.global.defaultFontFamily = 'Arial';
+  // Chart.defaults.global.defaultFontSize = 18;
+  // Chart.defaults.global.defaultFontColor = '#777';
+  let massPopChart = new Chart(myChart, {
+  type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+  data: {
+  labels: ["Planned Date", "Actual Date"],
+  datasets: [
+  {
+  label: "Date (DD-MM-YY)",
+  data: [2478,5267],
+  //backgroundColor:'blue',
+  //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+  backgroundColor: ["#3e95cd","#3e95cd"]
+  // borderWidth:1,
+  // borderColor:'grey',
+  // hoverBorderWidth:3,
+  // hoverBorderColor:'#000'
+  }]
+  },
+  options: {
+  scales: {
+  xAxes: [{
+  barPercentage: 0.3,
+  gridLines:{
+  display:true
+  }
+  }],
+  yAxes:[{
+  stacked:true,
+  // gridLines:{
+  //   display:false
+  // }
+  }]
+  },
+  legend: {
+  display: false,
+  position:'right',
+  lables:{
+  fontColor:'black'
+  }
+  },
+  title: {
+  display: true,
+  text: 'TTR',
+  //fontsize:100
+  },
+  layout:{
+  padding:{
+  left:50,
+  right:0,
+  bottom:0,
+  top:0
+  }
+  },
+  tooltips:{
+  enabled:true
+  }
+  }
+  });
+script.
+  //effdev
+  let myChart2 = document.getElementById('chart2').getContext('2d');
+  // //Global Options
+  // Chart.defaults.global.defaultFontFamily = 'Lato';
+  //Chart.defaults.global.defaultFontSize = 18;
+  // Chart.defaults.global.defaultFontColor = '#777';
+  let massPopChart2 = new Chart(document.getElementById("chart2"), {
+  type: 'bar',
+  data: {
+  labels: ["Lead Mapper", "Mappers", "Lead Implementer", "Implementer", "PM"],
+  datasets: [
+  {
+  label: "Actual",
+  backgroundColor: "#3e95cd",
+  data: [1503,2022,1083,2478,2222]
+  }, {
+  label: "Planned",
+  backgroundColor: "#ff9800",
+  data: [408,547,675,734,600]
+  }
+  ]
+  },
+  options: {
+  title: {
+  display: true,
+  text: 'Efforts Deviation'
+  }
+  }
+  });
+script.
+  //svpw
+  let myChart3 = document.getElementById('chart3').getContext('2d');
+  // //Global Options
+  // Chart.defaults.global.defaultFontFamily = 'Lato';
+  //Chart.defaults.global.defaultFontSize = 18;
+  // Chart.defaults.global.defaultFontColor = '#777';
+  let massPopChart3 = new Chart(document.getElementById("chart3"), {
+  type: 'bar',
+  data: {
+  labels: ["Discovery Phase", "Design Phase", "Development Phase", "Testing Phase"],
+  datasets: [
+  {
+  label: "Actual",
+  backgroundColor: "#3e95cd",
+  data: [133,221,783,2478]
+  }, {
+  label: "Planned",
+  backgroundColor: "#ff9800",
+  data: [408,547,675,734]
+  }
+  ]
+  },
+  options: {
+  title: {
+  display: true,
+  text: 'Schedule Variance - Phase Wise'
+  }
+  }
+  });
+script.
+  //cost
+  let myChart4 = document.getElementById('chart4').getContext('2d');
+  // //Global Options
+  // Chart.defaults.global.defaultFontFamily = 'Arial';
+  // Chart.defaults.global.defaultFontSize = 18;
+  // Chart.defaults.global.defaultFontColor = '#777';
+  let massPopChart4 = new Chart(myChart4, {
+  type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+  data: {
+  labels: ["Planned ", "Actual"],
+  datasets: [
+  {
+  label: "in Rupee",
+  data: [2478,5267],
+  //backgroundColor:'blue',
+  //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+  backgroundColor: ["#3e95cd","#3e95cd"]
+  // borderWidth:1,
+  // borderColor:'grey',
+  // hoverBorderWidth:3,
+  // hoverBorderColor:'#000'
+  }]
+  },
+  options: {
+  scales: {
+  xAxes: [{
+  barPercentage: 0.3
+  }]
+  },
+  legend: {
+  display: false,
+  position:'right',
+  lables:{
+  fontColor:'black'
+  }
+  },
+  title: {
+  display: true,
+  text: 'COST',
+  //fontsize:100
+  },
+  layout:{
+  padding:{
+  left:50,
+  right:0,
+  bottom:0,
+  top:0
+  }
+  },
+  tooltips:{
+  enabled:true
+  }
+  }
+  });
+

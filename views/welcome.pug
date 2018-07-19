@@ -1,0 +1,51 @@
+head
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  link(rel='stylesheet', href='/stylesheets/style.css')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+.container
+  h2(style='color:#CACACA;font-size:30px;')
+    | Welcome User!
+    br
+    br
+    img(src='images/avatar.png', width='80px', height='80px')
+br
+br
+br
+br
+br
+// <div class="col-md-3"></div>
+.col-md-4
+  p(style='color:#CACACA;font-size:19px;')
+    | If you want to
+    br
+    b
+      | Edit Existing project
+      b  Click below
+  // button.btn.btn-default(type='button' style='width:300px') Show Existing Project
+  form(action='/edit', method='GET')
+    input(type='submit', value='Show Existing Project')
+.col-md-4
+  p(style='color:#CACACA;font-size:19px;')
+    | If you want to
+    br
+    b
+      | Add New project
+      b    Click below
+  // button.btn.btn-default(type='button' style='width:300px') Add New Project
+  form(action='/newproject', method='GET')
+    input(type='submit', value='Add New Project')
+.col-md-4
+  p(style='color:#CACACA;font-size:19px;')
+    | If you want to
+    br
+    b
+      | See the Results
+      b    Click below
+  // button.btn.btn-default(type='button' style='width:300px') Add New Project
+  form(action='/dashboard.pug', method='GET')
+    input(type='submit', value='See Results')
+br
+.col-md-4
+.col-md-4

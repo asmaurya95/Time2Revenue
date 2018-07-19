@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 20px Comic Sans MS;
+  color: #CACACA;
+  font-style: italic;
+  background-color: white;
+  background-image: url("../images/1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
+  text-align: center;
+
+}
+
+a {
+  color: #00B7FF;
+  padding: 40px;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #4682B4;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100%;
+}
+
+input[type=submit]:hover {
+    background-color: #008B8B;
+}
