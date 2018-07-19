@@ -129,6 +129,15 @@ module.exports = function(passport) {
   );
 
 
+  /*POST Existing Projects Page*/
+  router.post('/edit',
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    function(req, res) {
+      console.log(req.body);
+      proj_name = req.body.proj_name;
+      res.redirect('/editproject');
+    }
+  );
 
   /*Dashboard page router*/
     router.get('/dashboard.pug',
@@ -157,17 +166,6 @@ module.exports = function(passport) {
 
 
 
-
-
-  /*POST Existing Projects Page*/
-  router.post('/edit',
-    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
-    function(req, res) {
-      console.log(req.body);
-      proj_name = req.body.proj_name;
-      res.redirect('/editproject');
-    }
-  );
 
   return router;
 };
