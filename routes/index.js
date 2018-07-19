@@ -32,6 +32,7 @@ module.exports = function(passport) {
     }
   );
 
+
   /*Dashboard page router*/
     router.get('/dashboard.pug',
       require('connect-ensure-login').ensureLoggedIn(),
@@ -47,6 +48,7 @@ module.exports = function(passport) {
         res.render('combined.pug',{});
       }
     );
+
 
   /* GET Login page. */
   router.get('/login', function(req, res) {
