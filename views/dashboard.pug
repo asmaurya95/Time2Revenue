@@ -18,29 +18,28 @@ head
     b
       | Select Project Name
       b  Click below
-  // button.btn.btn-default(type='button' style='width:300px') Show Existing Project
-  button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
-    | Project Name 
-    span.caret
-  ul.dropdown-menu(style='right:20px;')
-    li
-      a(href='#') HTML
-    li
-      a(href='#') CSS
-    li
-      a(href='#') JavaScript
-.col-md-6.dropdown
+
+  form(action='/', method='GET')
+    button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown') Project Name
+    ul#projname.dropdown-menu(name='projname', style='right:20px;')
+      each val in projlist
+        li
+          a(href="#") #{val}
+
+  br
+  br
+  input(type='submit')
+.col-md-6
   p(style='color:#CACACA;font-size:19px;')
     | This is to
     br
     b
       | Select Project Phase
       b    Click below
-  // button.btn.btn-default(type='button' style='width:300px') Add New Project
-  button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
-    | Project Phase 
-    span.caret
-  ul.dropdown-menu(style='right:20px;')
+
+  form(action='/', method='GET')
+  button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown') Project Phase
+  ul#projphase.dropdown-menu(name='projphase', style='right:20px;')
     li
       a(href='#') Discovery Phase
     li
@@ -53,6 +52,11 @@ head
       a(href='#') Testing Phase
     li
       a(href='#') Go-Live
+  br
+  br
+  br
+  input(type='submit')
+
 br
 br
 br
@@ -67,6 +71,9 @@ br
 br
 br
 br
+br
+br
+
 .col-md-12
   p(style='color:#CACACA;font-size:19px;')
     | This is to
@@ -79,5 +86,3 @@ br
     input.btn.btn-primary.dropdown-toggle(type='submit', value='Result Graphs')
 br
 .col-md-4
-
-

@@ -33,23 +33,6 @@ module.exports = function(passport) {
   );
 
 
-  /*Dashboard page router*/
-    router.get('/dashboard.pug',
-      require('connect-ensure-login').ensureLoggedIn(),
-      (req,res) => {
-        res.render('dashboard.pug',{});
-      }
-    );
-
-    /*combined page router*/
-    router.get('/combined.pug',
-      require('connect-ensure-login').ensureLoggedIn(),
-    (req,res) => {
-        res.render('combined.pug',{});
-      }
-    );
-
-
   /* GET Login page. */
   router.get('/login', function(req, res) {
     res.render('login', { title: 'Time to Revenue' });
@@ -144,6 +127,37 @@ module.exports = function(passport) {
       });
     }
   );
+
+
+
+  /*Dashboard page router*/
+    router.get('/dashboard.pug',
+      require('connect-ensure-login').ensureLoggedIn(),
+      (req,res) => {
+        db.getNames(function(err, doc){
+            console.log(doc);
+            res.render('dashboard.pug', {projlist: doc});
+        });
+
+      });
+
+
+
+    /*combined page router*/
+    router.get('/combined.pug',
+      require('connect-ensure-login').ensureLoggedIn(),
+    (req,res) => {
+        res.render('combined.pug',{});
+      }
+    );
+
+
+
+
+
+
+
+
 
   /*POST Existing Projects Page*/
   router.post('/edit',
