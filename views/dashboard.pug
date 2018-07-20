@@ -11,77 +11,29 @@ head
     br
     br
 
-.col-md-6
-  p(style='color:#CACACA;font-size:19px;')
-    | This is to
-    br
-    b
-      | Select Project Name
-      b  Click below
-
-  form(action='/dashboard.pug', method='POST')
-    button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown') Project Name
-    ul#projname.dropdown-menu(name='projname', style='right:20px;')
-      each val in projlist
-        li
-          a(href="#") #{val}
-
-  br
-  br
-  input(type='submit')
-.col-md-6
-  p(style='color:#CACACA;font-size:19px;')
-    | This is to
-    br
-    b
-      | Select Project Phase
-      b    Click below
-
-  form(action='/dashboard.pug', method='POST')
-    button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown') Project Phase
-    ul#projphase.dropdown-menu(name='projphase', style='right:20px;')
-      li
-        a(href="#") Discovery Phase
-      li
-        a(href="#") Design Phase
-      li
-        a(href="#") Environment Readiness Phase
-      li
-        a(href="#") Development Phase
-      li
-        a(href="#") Testing Phase
-      li
-        a(href="#") Go-Live
-  br
-  br
-  input(type='submit')
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
-br
 .col-md-12
   p(style='color:#CACACA;font-size:19px;')
     | This is to
     br
     b
-      | Check Result graphs
+      | Select Project and Phase
+      br
       b  Click below
-  // button.btn.btn-default(type='button' style='width:300px') Add New Project
-  form(action='/combined.pug', method='GET')
-    input.btn.btn-primary.dropdown-toggle(type='submit', value='Result Graphs')
-br
-.col-md-4
+  div.form-group
+    form(action='/dashboard', method='POST')
+      p(style='color:#4682B4;font-size:19px;')
+        select(name='projname')
+          each val in projlist
+            option= val
+        br
+        br
+        br
+        select(name='projphase')
+          option Discovery Phase
+          option Design Phase
+          option Environment Readiness Phase
+          option Development Phase
+          option Testing Phase	
+          option Go-Live
+      input(type='submit')
+.col-md-12

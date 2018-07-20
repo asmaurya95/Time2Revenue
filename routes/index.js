@@ -128,7 +128,6 @@ module.exports = function(passport) {
     }
   );
 
-
   /*POST Existing Projects Page*/
   router.post('/edit',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
@@ -139,42 +138,25 @@ module.exports = function(passport) {
     }
   );
 
-  /*GET Dashboard page router*/
-    router.get('/dashboard.pug',
-      require('connect-ensure-login').ensureLoggedIn(),
-      (req,res) => {
-        db.getNames(function(err, doc){
-            console.log(doc);
-            res.render('dashboard.pug', {projlist: doc});
-        });
-
-      });
-
-  /*POST Dashboard page router*/
-    router.post('/dashboard.pug',
-      require('connect-ensure-login').ensureLoggedIn(),
-      (req,res) => {
-        projname = req.body.param.projname;
-        projphase = req.body.param.projphase;
-        console.log(projname);
-        console.log(projphase);
-
-
-      });
-
-
-    /*combined page router*/
-    router.get('/combined.pug',
-      require('connect-ensure-login').ensureLoggedIn(),
+  /*GET Dashboard Page*/
+  router.get('/dashboard',
+    require('connect-ensure-login').ensureLoggedIn(),
     (req,res) => {
-        res.render('combined.pug',{});
-      }
-    );
+      db.getNames(function(err, doc){
+        console.log(doc);
+        res.render('dashboard', {projlist: doc});
+      });
+  });
 
-
-
-
-
+  /*POST Dashboard Page*/
+  router.post('/dashboard',
+    require('connect-ensure-login').ensureLoggedIn(),
+    (req,res) => {
+      console.log(req.body);
+      projname = req.body.projname;
+      projphase = req.body.projphase;
+      res.render('combined', {});
+  });
 
   return router;
 };
