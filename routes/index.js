@@ -139,7 +139,7 @@ module.exports = function(passport) {
     }
   );
 
-  /*Dashboard page router*/
+  /*GET Dashboard page router*/
     router.get('/dashboard.pug',
       require('connect-ensure-login').ensureLoggedIn(),
       (req,res) => {
@@ -150,6 +150,17 @@ module.exports = function(passport) {
 
       });
 
+  /*POST Dashboard page router*/
+    router.post('/dashboard.pug',
+      require('connect-ensure-login').ensureLoggedIn(),
+      (req,res) => {
+        projname = req.body.param.projname;
+        projphase = req.body.param.projphase;
+        console.log(projname);
+        console.log(projphase);
+
+
+      });
 
 
     /*combined page router*/
@@ -159,8 +170,6 @@ module.exports = function(passport) {
         res.render('combined.pug',{});
       }
     );
-
-
 
 
 

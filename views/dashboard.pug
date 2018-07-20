@@ -10,7 +10,7 @@ head
     | Result Dashboard
     br
     br
-// <div class="col-md-3"></div>
+
 .col-md-6
   p(style='color:#CACACA;font-size:19px;')
     | This is to
@@ -19,7 +19,7 @@ head
       | Select Project Name
       b  Click below
 
-  form(action='/', method='GET')
+  form(action='/dashboard.pug', method='POST')
     button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown') Project Name
     ul#projname.dropdown-menu(name='projname', style='right:20px;')
       each val in projlist
@@ -37,22 +37,21 @@ head
       | Select Project Phase
       b    Click below
 
-  form(action='/', method='GET')
-  button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown') Project Phase
-  ul#projphase.dropdown-menu(name='projphase', style='right:20px;')
-    li
-      a(href='#') Discovery Phase
-    li
-      a(href='#') Design Phase
-    li
-      a(href='#') Environment Readiness Phase
-    li
-      a(href='#') Development Phase
-    li
-      a(href='#') Testing Phase
-    li
-      a(href='#') Go-Live
-  br
+  form(action='/dashboard.pug', method='POST')
+    button.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown') Project Phase
+    ul#projphase.dropdown-menu(name='projphase', style='right:20px;')
+      li
+        a(href="#") Discovery Phase
+      li
+        a(href="#") Design Phase
+      li
+        a(href="#") Environment Readiness Phase
+      li
+        a(href="#") Development Phase
+      li
+        a(href="#") Testing Phase
+      li
+        a(href="#") Go-Live
   br
   br
   input(type='submit')
