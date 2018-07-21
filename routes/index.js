@@ -300,11 +300,11 @@ module.exports = function(passport) {
         effdevplan = effort_difference_plan(doc.ldmp_plan,doc.mp_plan,doc.ldimp_plan,doc.imp_plan,doc.pm_plan);
 
         res.render('combined', {
-          ttrdatediff :{},
-          svpwactdatediff :{},
-          svpwplandatediff :{},
-          effdevact :{},
-          effdevplan :{}
+          ttr : ttrdatediff,
+          svpwact : svpwactdatediff,
+          svpwplan: svpwplandatediff,
+          effdevac : effdevact,
+          effdevpl : effdevplan
 
         }); //res.render closing
 
