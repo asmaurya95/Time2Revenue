@@ -1,4 +1,5 @@
 var express = require('express');
+var datetime = require('node-datetime');
 var router = express.Router();
 var User = require('../models/user');
 var db = require('../models/projects');
@@ -159,10 +160,10 @@ module.exports = function(passport) {
 
       /*Business logic function*/
       const date_difference = (actdateS, actdateE, plandateS, plandateE) => {
-        var actdateS = actdateS.getTime();
-        var actdateE = actdateE.getTime();
-        var plandateS = plandateS.getTime();
-        var plandateE = plandateE.getTime();
+        var actdateS = actdateS;
+        var actdateE = actdateE;
+        var plandateS = plandateS;
+        var plandateE = plandateE;
 
         var actdiff = actdateE - actdateS;
         var plandiff = plandateE - plandateS;
@@ -171,18 +172,18 @@ module.exports = function(passport) {
       }
 
       const svpw_actdifference = (disactdateS, disactdateE, desactdateS, desactdateE, envactdateS, envactdateE, devactdateS, devactdateE, tesactdateS, tesactdateE, golvactdateS, golvactdateE) => {
-        var disactdateS = disactdateS.getTime();
-        var disactdateE = disactdateE.getTime();
-        var desactdateS = desactdateS.getTime();
-        var desactdateE = desactdateE.getTime();
-        var envactdateS = envactdateS.getTime();
-        var envactdateE = envactdateE.getTime();
-        var devactdateS = devactdateS.getTime();
-        var devactdateE = devactdateE.getTime();
-        var tesactdateS = tesactdateS.getTime();
-        var tesactdateE = tesactdateE.getTime();
-        var golvactdateS = golvactdateS.getTime();
-        var golvactdateE = golvactdateE.getTime();
+        var disactdateS = disactdateS;
+        var disactdateE = disactdateE;
+        var desactdateS = desactdateS;
+        var desactdateE = desactdateE;
+        var envactdateS = envactdateS;
+        var envactdateE = envactdateE;
+        var devactdateS = devactdateS;
+        var devactdateE = devactdateE;
+        var tesactdateS = tesactdateS;
+        var tesactdateE = tesactdateE;
+        var golvactdateS = golvactdateS;
+        var golvactdateE = golvactdateE;
 
         var actdiffdis = disactdateE - disactdateS;
         var actdiffdes = desactdateE - desactdateS;
@@ -196,18 +197,18 @@ module.exports = function(passport) {
       }
 
       const svpw_plandifference = (displandateS, displandateE, desplandateS, desplandateE, envplandateS, envplandateE, devplandateS, devplandateE, tesplandateS, tesplandateE, golvplandateS, golvplandateE) => {
-        var displandateS = displandateS.getTime();
-        var displandateE = displandateE.getTime();
-        var desplandateS = desplandateS.getTime();
-        var desplandateE = desplandateE.getTime();
-        var envplandateS = envplandateS.getTime();
-        var envplandateE = envplandateE.getTime();
-        var devplandateS = devplandateS.getTime();
-        var devplandateE = devplandateE.getTime();
-        var tesplandateS = tesplandateS.getTime();
-        var tesplandateE = tesplandateE.getTime();
-        var golvplandateS = golvplandateS.getTime();
-        var golvplandateE = golvplandateE.getTime();
+        var displandateS = displandateS;
+        var displandateE = displandateE;
+        var desplandateS = desplandateS;
+        var desplandateE = desplandateE;
+        var envplandateS = envplandateS;
+        var envplandateE = envplandateE;
+        var devplandateS = devplandateS;
+        var devplandateE = devplandateE;
+        var tesplandateS = tesplandateS;
+        var tesplandateE = tesplandateE;
+        var golvplandateS = golvplandateS;
+        var golvplandateE = golvplandateE;
 
         var plandiffdis = displandateE - displandateS;
         var plandiffdes = desplandateE - desplandateS;
