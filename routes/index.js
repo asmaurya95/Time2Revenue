@@ -163,28 +163,56 @@ module.exports = function(passport) {
       var proj_name = req.body.projname;
       var proj_phase = req.body.projphase;
 
+      /*Business logic function*/
+      const date_difference = (actdateS, actdateE, plandateS, plandateE) => {
+        var actdateS = actdateS.getDate();
+        var actdateE = actdateE.getDate();
+        var plandateS = plandateS.getDate();
+        var plandateE = plandateE.getDate();
+
+        var actdiff = actdateE - actdateS;
+        var plandiff = plandateE - plandateS;
+        var datediff = [actdiff, plandiff];
+        return datediff;
+      }
+
+
+
 
 
       db.getDocumentPhaseWise(proj_name, proj_phase, function(err, doc, proj_phase) {
         console.log(doc);
+        var ttrdatediff;
+        /*phase specific output*/
 
         if (proj_phase === 'Discovery Phase') {
+          ttrdatediff = date_difference(doc.Dis_act_strdt,doc.Dis_act_enddt,doc.Dis_plan_strdt,doc.Dis_plan_enddt);
 
 
         }
         if (proj_phase === 'Design Phase') {
+          ttrdatediff = date_difference(doc.Des_act_strdt,doc.Des_act_enddt,doc.Des_plan_strdt,doc.Des_plan_enddt);
+
 
         }
         if (proj_phase === 'Environment Readiness Phase') {
+          ttrdatediff = date_difference(doc.env_act_strdt,doc.env_act_enddt,doc.env_plan_strdt,doc.env_plan_enddt);
+
 
         }
         if (proj_phase === 'Development Phase') {
+          ttrdatediff = date_difference(doc.Dev_act_strdt,doc.Dev_act_enddt,doc.Dev_plan_strdt,doc.Dev_plan_enddt);
+
 
         }
         if (proj_phase === 'Testing Phase') {
+          ttrdatediff = date_difference(doc.tes_act_strdt,doc.tes_act_enddt,doc.tes_plan_strdt,doc.tes_plan_enddt);
+
 
         }
         if (proj_phase === 'Go-Live') {
+          ttrdatediff = date_difference(doc.golv_act_strdt,doc.golv_act_enddt,doc.golv_plan_strdt,doc.golv_plan_enddt);
+
 
         }
 
