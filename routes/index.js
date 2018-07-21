@@ -160,11 +160,11 @@ module.exports = function(passport) {
 
       /*Business logic function*/
       const date_difference = (actdateS, actdateE, plandateS, plandateE) => {
-        var actdateS = actdateS;
-        var actdateE = actdateE;
-        var plandateS = plandateS;
-        var plandateE = plandateE;
-
+        var actdateS = new Date(actdateS.split("-").reverse().join("-"));
+        var actdateE = new Date(actdateE.split("-").reverse().join("-"));
+        var plandateS = new Date(plandateS.split("-").reverse().join("-"));
+        var plandateE = new Date(plandateE.split("-").reverse().join("-"));
+        console.log(actdateS);
         var actdiff = actdateE - actdateS;
         var plandiff = plandateE - plandateS;
         console.log(plandiff);
@@ -173,18 +173,18 @@ module.exports = function(passport) {
       }
 
       const svpw_actdifference = (disactdateS, disactdateE, desactdateS, desactdateE, envactdateS, envactdateE, devactdateS, devactdateE, tesactdateS, tesactdateE, golvactdateS, golvactdateE) => {
-        var disactdateS = disactdateS;
-        var disactdateE = disactdateE;
-        var desactdateS = desactdateS;
-        var desactdateE = desactdateE;
-        var envactdateS = envactdateS;
-        var envactdateE = envactdateE;
-        var devactdateS = devactdateS;
-        var devactdateE = devactdateE;
-        var tesactdateS = tesactdateS;
-        var tesactdateE = tesactdateE;
-        var golvactdateS = golvactdateS;
-        var golvactdateE = golvactdateE;
+        var disactdateS = new Date(disactdateS.split("-").reverse().join("-"));
+        var disactdateE = new Date(disactdateE.split("-").reverse().join("-"));
+        var desactdateS = new Date(desactdateS.split("-").reverse().join("-"));
+        var desactdateE = new Date(desactdateE.split("-").reverse().join("-"));
+        var envactdateS = new Date(envactdateS.split("-").reverse().join("-"));
+        var envactdateE = new Date(envactdateE.split("-").reverse().join("-"));
+        var devactdateS = new Date(devactdateS.split("-").reverse().join("-"));
+        var devactdateE = new Date(devactdateE.split("-").reverse().join("-"));
+        var tesactdateS = new Date(tesactdateS.split("-").reverse().join("-"));
+        var tesactdateE = new Date(tesactdateE.split("-").reverse().join("-"));
+        var golvactdateS = new Date(golvactdateS.split("-").reverse().join("-"));
+        var golvactdateE = new Date(golvactdateE.split("-").reverse().join("-"));
 
         var actdiffdis = disactdateE - disactdateS;
         var actdiffdes = desactdateE - desactdateS;
@@ -198,18 +198,18 @@ module.exports = function(passport) {
       }
 
       const svpw_plandifference = (displandateS, displandateE, desplandateS, desplandateE, envplandateS, envplandateE, devplandateS, devplandateE, tesplandateS, tesplandateE, golvplandateS, golvplandateE) => {
-        var displandateS = displandateS;
-        var displandateE = displandateE;
-        var desplandateS = desplandateS;
-        var desplandateE = desplandateE;
-        var envplandateS = envplandateS;
-        var envplandateE = envplandateE;
-        var devplandateS = devplandateS;
-        var devplandateE = devplandateE;
-        var tesplandateS = tesplandateS;
-        var tesplandateE = tesplandateE;
-        var golvplandateS = golvplandateS;
-        var golvplandateE = golvplandateE;
+        var displandateS = new Date(displandateS.split("-").reverse().join("-"));
+        var displandateE = new Date(displandateE.split("-").reverse().join("-"));
+        var desplandateS = new Date(desplandateS.split("-").reverse().join("-"));
+        var desplandateE = new Date(desplandateE.split("-").reverse().join("-"));
+        var envplandateS = new Date(envplandateS.split("-").reverse().join("-"));
+        var envplandateE = new Date(envplandateE.split("-").reverse().join("-"));
+        var devplandateS = new Date(devplandateS.split("-").reverse().join("-"));
+        var devplandateE = new Date(devplandateE.split("-").reverse().join("-"));
+        var tesplandateS = new Date(tesplandateS.split("-").reverse().join("-"));
+        var tesplandateE = new Date(tesplandateE.split("-").reverse().join("-"));
+        var golvplandateS = new Date(golvplandateS.split("-").reverse().join("-"));
+        var golvplandateE = new Date(golvplandateE.split("-").reverse().join("-"));
 
         var plandiffdis = displandateE - displandateS;
         var plandiffdes = desplandateE - desplandateS;
