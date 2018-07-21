@@ -3,7 +3,7 @@ var datetime = require('node-datetime');
 var router = express.Router();
 var User = require('../models/user');
 var db = require('../models/projects');
-var proj_name;
+var projectName;
 
 module.exports = function(passport) {
 
@@ -19,7 +19,7 @@ module.exports = function(passport) {
   router.get('/newproject',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
     function(req, res) {
-      res.render('newproject', { title: 'Time2Revenue' });
+      res.render('newproject', { title: 'Add New Project' });
     }
   );
 
@@ -36,7 +36,7 @@ module.exports = function(passport) {
 
   /* GET Login page. */
   router.get('/login', function(req, res) {
-    res.render('login', { title: 'Time to Revenue' });
+    res.render('login', { title: 'Login' });
     }
   );
 
@@ -53,9 +53,10 @@ module.exports = function(passport) {
   router.get('/editproject',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
     function(req, res) {
-      db.getDocument(proj_name, function(err, doc) {
+      db.getDocument(projectName, function(err, doc) {
         console.log(doc);
-        res.render('editproject', { cust_name: doc.cust_name,
+        res.render('editproject', { title: 'Edit Project',
+                                    cust_name: doc.cust_name,
                                     proj_name: doc.proj_name,
                                     contr_typ: doc.contr_typ,
                                     contr_end: doc.contr_end,
@@ -108,7 +109,7 @@ module.exports = function(passport) {
   router.post('/editproject',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
     function(req, res) {
-      db.getDocument(proj_name, function(err, doc) {
+      db.getDocument(projectName, function(err, doc) {
           var projectData = req.body;
           db.updateDocument(projectData, doc._id, function(err, res) {
             if(err) console.log('No Update');
@@ -125,7 +126,7 @@ module.exports = function(passport) {
     function(req, res) {
       db.getNames(function(err, doc){
           console.log(doc);
-          res.render('edit', { projlist: doc});
+          res.render('edit', { title: 'Existing Projects', projlist: doc});
       });
     }
   );
@@ -135,7 +136,7 @@ module.exports = function(passport) {
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
     function(req, res) {
       console.log(req.body);
-      proj_name = req.body.proj_name;
+      projectName = req.body.proj_name;
       res.redirect('/editproject');
     }
   );
@@ -146,7 +147,7 @@ module.exports = function(passport) {
     (req,res) => {
       db.getNames(function(err, doc){
         console.log(doc);
-        res.render('dashboard', {projlist: doc});
+        res.render('dashboard', {title: 'Dashboard', projlist: doc});
       });
   });
 
@@ -179,7 +180,7 @@ module.exports = function(passport) {
         console.log(plandateS);
         console.log(plandateE);
         console.log(plandiff);
-        var datediff = [actdiff, plandiff];
+        var datediff = [plandiff, actdiff];
         return datediff;
       }
 
@@ -300,6 +301,7 @@ module.exports = function(passport) {
         effdevplan = effort_difference_plan(doc.ldmp_plan,doc.mp_plan,doc.ldimp_plan,doc.imp_plan,doc.pm_plan);
 
         res.render('combined', {
+          title : "Dashboard",
           ttr : ttrdatediff,
           svpwact : svpwactdatediff,
           svpwplan: svpwplandatediff,

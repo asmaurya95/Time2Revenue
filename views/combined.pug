@@ -1,5 +1,6 @@
 doctype html
 head
+  title= title
   meta(charset='UTF-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   meta(http-equiv='X-UA-Compatible', content='ie=edge')
@@ -42,10 +43,10 @@ script.
   let massPopChart = new Chart(myChart, {
   type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
   data: {
-  labels: ["Planned Date", "Actual Date"],
+  labels: ["Planned", "Actual"],
   datasets: [
   {
-  label: "Date (DD-MM-YY)",
+  label: "Days",
   data: [#{ttr}],
   //backgroundColor:'blue',
   //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
@@ -111,11 +112,11 @@ script.
   {
   label: "Actual",
   backgroundColor: "#3e95cd",
-  data: [#{svpwact}]
+  data: [#{effdevac}]
   }, {
   label: "Planned",
   backgroundColor: "#ff9800",
-  data: [#{svpwplan}]
+  data: [#{effdevpl}]
   }
   ]
   },
@@ -136,16 +137,16 @@ script.
   let massPopChart3 = new Chart(document.getElementById("chart3"), {
   type: 'bar',
   data: {
-  labels: ["Discovery Phase", "Design Phase", "Development Phase", "Testing Phase"],
+  labels: ["Discovery Phase", "Design Phase", "Environment Readiness Phase", "Development Phase", "Testing Phase", "Go-live"],
   datasets: [
   {
   label: "Actual",
   backgroundColor: "#3e95cd",
-  data: [#{effdevac}]
+  data: [#{svpwact}] 
   }, {
   label: "Planned",
   backgroundColor: "#ff9800",
-  data: [#{effdevpl}]
+  data: [#{svpwplan}] 
   }
   ]
   },
