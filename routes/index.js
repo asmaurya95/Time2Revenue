@@ -58,36 +58,43 @@ module.exports = function(passport) {
                                     proj_name: doc.proj_name,
                                     contr_typ: doc.contr_typ,
                                     contr_end: doc.contr_end,
+
                                     Dis_plan_strdt: doc.Dis_plan_strdt,
                                     Dis_plan_enddt: doc.Dis_plan_enddt,
                                     Dis_act_strdt: doc.Dis_act_strdt,
                                     Dis_act_enddt: doc.Dis_act_enddt,
                                     Dis_comment: doc.Dis_comment,
+
                                     Des_plan_strdt: doc.Des_plan_strdt,
                                     Des_plan_enddt: doc.Des_plan_enddt,
                                     Des_act_strdt: doc.Des_act_strdt,
                                     Des_act_enddt: doc.Des_act_enddt,
                                     Des_comment: doc.Des_comment,
+
                                     env_plan_strdt: doc.env_plan_strdt,
                                     env_plan_enddt: doc.env_plan_enddt,
                                     env_act_strdt: doc.env_act_strdt,
                                     env_act_enddt: doc.env_act_enddt,
                                     env_comment: doc.env_comment,
+
                                     Dev_plan_strdt: doc.Dev_plan_strdt,
                                     Dev_plan_enddt: doc.Dev_plan_enddt,
                                     Dev_act_strdt: doc.Dev_act_strdt,
                                     Dev_act_enddt: doc.Dev_act_enddt,
                                     Dev_comment: doc.Dev_comment,
+
                                     tes_plan_strdt: doc.tes_plan_strdt,
                                     tes_plan_enddt: doc.tes_plan_enddt,
                                     tes_act_strdt: doc.tes_act_strdt,
                                     tes_act_enddt: doc.tes_act_enddt,
                                     tes_comment: doc.tes_comment,
+
                                     golv_plan_strdt: doc.golv_plan_strdt,
                                     golv_plan_enddt: doc.golv_plan_enddt,
                                     golv_act_strdt: doc.golv_act_strdt,
                                     golv_act_enddt: doc.golv_act_enddt,
                                     golv_comment: doc.golv_comment,
+
                                     ldmp_plan: doc.ldmp_plan,
                                     ldmp_act: doc.ldmp_act,
                                     mp_plan: doc.mp_plan,
@@ -153,10 +160,43 @@ module.exports = function(passport) {
     require('connect-ensure-login').ensureLoggedIn(),
     (req,res) => {
       console.log(req.body);
-      projname = req.body.projname;
-      projphase = req.body.projphase;
-      res.render('combined', {});
+      var proj_name = req.body.projname;
+      var proj_phase = req.body.projphase;
+
+
+
+      db.getDocumentPhaseWise(proj_name, proj_phase, function(err, doc, proj_phase) {
+        console.log(doc);
+
+        if (proj_phase === 'Discovery Phase') {
+
+
+        }
+        if (proj_phase === 'Design Phase') {
+
+        }
+        if (proj_phase === 'Environment Readiness Phase') {
+
+        }
+        if (proj_phase === 'Development Phase') {
+
+        }
+        if (proj_phase === 'Testing Phase') {
+
+        }
+        if (proj_phase === 'Go-Live') {
+
+        }
+
+      });
   });
+
+  // res.render('combined', {});
+
+
+
+
+
 
   return router;
 };

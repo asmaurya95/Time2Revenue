@@ -14,7 +14,8 @@ exports.insertDocument = function(doc) {
 
 exports.updateDocument = function(doc, id, callback) {
   process.nextTick(function() {
-    db.get(id, function(error, existing) {
+
+    (id, function(error, existing) {
       if(!error) doc._rev = existing._rev;
       db.insert(doc, id, callback);
       console.log(doc);
@@ -56,4 +57,24 @@ exports.getNames = function(callback) {
         return callback(null, null);
     });
 })
+}
+
+/**********************************/
+ exports.getDocumentPhaseWise = function(proj_name, proj_phase, callback) {
+   process.nextTick(function() {
+     doc.view('findproject','findbyname',function(err,body) {
+       var record;
+         if (err) console.log("Error Occurred !");
+         else {
+           body.rows.forEach(function(doc){
+             if (proj_name === doc.value.proj_name) {
+               record = doc;
+             }
+           });
+         }
+         if (record) {
+           return callback(null, record.value, proj_phase);
+         }
+     });
+   })
 }
