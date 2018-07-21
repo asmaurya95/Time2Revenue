@@ -167,6 +167,7 @@ module.exports = function(passport) {
 
         var actdiff = actdateE - actdateS;
         var plandiff = plandateE - plandateS;
+        console.log(plandiff);
         var datediff = [actdiff, plandiff];
         return datediff;
       }
