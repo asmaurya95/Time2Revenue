@@ -80,7 +80,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //again passport Stuff
-app.use(session({ secret: 'some bad text', resave: true, saveUninitialized: true }));
+app.use(session({ secret: 'some bad text', resave: true, saveUninitialized: true, cookie: { maxAge: 30*10000 } }));
 app.use(passport.initialize()); // initialize passport
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // connect-flash for flash messages stored in session
