@@ -6,6 +6,12 @@ head
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+form(method='GET' action='/logout' align="right")
+  label(class="logoutLb1Pos")
+    button.btn.btn-primary(type='submit' name='logout')
+      k.glyphicon.glyphicon-off
+        | Logout
+      k
 .container
   h1(style='color:#CACACA')
     u Edit Project
@@ -30,11 +36,6 @@ head
         label(for='date' style='color:#CACACA') Contract End Date:
         input#contr_end.form-control(type='date' placeholder='Enter Contract End Date' name='contr_end' value=contr_end required)
     .col-md-4
-	  form(method='GET' action='/')
-	    button.btn.btn-primary(type='button' name='logout')
-          k.glyphicon.glyphicon-off
-            | Logout
-          k
     br
     .col-md-12
       h2(style='color:#CACACA')
@@ -219,3 +220,4 @@ head
                   input#pm_act.form-control(type='number' placeholder='' name='pm_act' value=pm_act)
         button.btn.btn-primary.btn-block(type='submit') Submit
 .col-md-2
+script(type='text/javascript', src='/javascripts/timeout.js')

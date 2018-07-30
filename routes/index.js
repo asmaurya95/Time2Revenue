@@ -49,6 +49,11 @@ module.exports = function(passport) {
       })
   );
 
+  router.get('/logout', function(req, res){
+      req.logout();
+      res.redirect('/login');
+  });
+
   /*GET Edit Project Page */
   router.get('/editproject',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
@@ -312,13 +317,6 @@ module.exports = function(passport) {
 
       }); // getDocumentPhaseWise closing
   });    //  router.post closing
-
-
-
-
-
-
-
 
   return router;
 };

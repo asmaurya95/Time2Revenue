@@ -8,6 +8,12 @@ head
   script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
   script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
   //script(src="/javascripts/edit")
+form(method='GET' action='/logout' align="right")
+  label(class="logoutLb1Pos")
+    button.btn.btn-primary(type='submit' name='logout')
+      k.glyphicon.glyphicon-off
+        | Logout
+      k
 .container
   .col-md-4
   .col-md-4
@@ -27,8 +33,4 @@ head
           input(type="submit", value="EDIT")
       br            
   .col-md-4
-	form(method='GET' action='/')
-		button.btn.btn-primary(type='button' name='logout')
-		k.glyphicon.glyphicon-off
-			| Logout
-			k
+script(type='text/javascript', src='/javascripts/timeout.js')
