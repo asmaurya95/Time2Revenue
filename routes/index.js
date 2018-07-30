@@ -11,7 +11,8 @@ module.exports = function(passport) {
   router.get('/',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
     function(req, res) {
-      res.render('welcome', { title: 'Time2Revenue' });
+      console.log(req.user);
+      res.render('welcome', { title: 'Time2Revenue', user: req.user.username });
     }
   );
 
