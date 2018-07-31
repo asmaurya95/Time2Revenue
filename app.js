@@ -65,6 +65,7 @@ passport.use(new LocalStrategy(
       return done(null, user);
     });*/
     ibm_db.authenticateUser(username, password, function(err, user){
+      console.log("In app.js: ");
       console.log(user);
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
