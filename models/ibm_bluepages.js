@@ -5,6 +5,7 @@ var lead_group='SPOC';
 var options = ['uid', 'name'];
 
 exports.authenticateUser = function(username, password, cb) {
+  process.nextTick(function(){
     console.log("GETTING IBM INTRANET DETAILS");
     bluepages.authenticate(username, password, function(err, verified){
         if(err) {
@@ -90,9 +91,11 @@ exports.authenticateUser = function(username, password, cb) {
           cb(null, null);
         }
     });
+  });
 }
 
-exports.authenticateID = function(id, usergrp, cb) {
+exports.authenticateID = function(userid, usergrp, cb) {
+  process.nextTick(function(){
     console.log("deserializing user");
     bluepages.getUserInfo({uid: id}, options, function(err, result) {
         if(err) {
@@ -103,7 +106,8 @@ exports.authenticateID = function(id, usergrp, cb) {
           console.log("user info by id fetched");
           console.log(result);
           var record = { id: result.uid, name: result.name, group: usergrp };
-          return record;
+          cb(null, record);
         }
       });
+  });
 }
