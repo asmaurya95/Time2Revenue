@@ -32,6 +32,7 @@ exports.authenticateUser = function(username, password, cb) {
                     var record = { id: result.uid, name: result.name, group: "admin" };
                     cb(null, record);
                   }
+                });
               }
               else {
                 // check for lead_group
@@ -52,6 +53,7 @@ exports.authenticateUser = function(username, password, cb) {
                         var record = { id: result.uid, name: result.name, group: "program-manager" };
                         return record;
                       }
+                    });
                   }
                   else {
                     // check for user group
@@ -72,6 +74,7 @@ exports.authenticateUser = function(username, password, cb) {
                             var record = { id: result.uid, name: result.name, group: "service-manager" };
                             return record;
                           }
+                        });
                       }
                       else {
                         console.log("belongs to no group");
@@ -105,6 +108,6 @@ exports.authenticateID = function(id, usergrp, cb) {
           var record = { id: result.uid, name: result.name, group: usergrp };
           return record;
         }
+      });
     });
-  });
 }
