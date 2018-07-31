@@ -1,12 +1,59 @@
-extends layout
-
-block content
-  h1 Time to Revenue
-  link(rel='stylesheet', href='/stylesheets/login.css')
-  div.form-group
-    form(action = '/login', method = 'POST')
-      p
-        input(type="email", id="email", name="email", placeholder="IBM Intranet Email ID", required)
-        input(type="password", id="password", name="password", placeholder="IBM Intranet Password", required)
-      input(type="submit", value="LOGIN")
-  //script(type='text/javascript', src='/javascripts/index.js')
+doctype html
+title Index
+meta(charset='UTF-8')
+meta(name='viewport' content='width=device-width, initial-scale=1')
+link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins')
+link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+link(rel='stylesheet' href='/stylesheets/login.css')
+nav#mySidebar.w3-sidebar.w3-red.w3-collapse.w3-top.w3-large.w3-padding(style='z-index:3;width:300px;font-weight:bold;')
+  br
+  a.w3-button.w3-hide-large.w3-display-topleft(href='javascript:void(0)' onclick='w3_close()' style='width:100%;font-size:22px') Close Menu
+  .w3-container
+    h3.w3-padding-64
+      img(src='public/images/ibm.jpg' width='200px' height='100px')
+      b(style='font-size:80px;padding-left:20px;color:white') IBM
+  .w3-bar-block
+    h2(align='center') Login
+    br
+    form(action='/login' method='POST')
+      .form-group
+        label(for='email') Email Address:
+        br
+        input#email.form-control(type='email' name='email' placeholder='IBM Intranet Email ID' required='')
+        label(for='pwd') Password:
+        input#password.form-control(type='password' name='password' placeholder='IBM Intranet Password' required='')
+        br
+        button.btn.btn-primary(type='submit' name='login') Login
+// Top menu on small screens
+header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
+  a.w3-button.w3-red.w3-margin-right(href='javascript:void(0)' onclick='w3_open()') &#x2630;
+  span IBM
+// Overlay effect when opening sidebar on small screens
+#myOverlay.w3-overlay.w3-hide-large(onclick='w3_close()' style='cursor:pointer' title='close side menu')
+// !PAGE CONTENT!
+.w3-main(style='margin-left:340px;margin-right:40px')
+  // Header
+  #showcase.w3-container(style='margin-top:80px')
+    h1.w3-jumbo
+      b Time to Revenue
+    h1.w3-xxxlarge.w3-text-red
+      b Cruciality and its need!
+    hr.w3-round(style='width:50px;border:5px solid red')
+  #services.w3-container(style='margin-top:5px')
+    p
+      | Revenue is a crucial part of financial statement analysis. The company&rsquo;s performance is measured to the extent to which its asset inflows (revenues) compare with its asset outflows (expenses). Net income is the result of this equation, but revenue typically enjoys equal attention during a standard earnings call. If a company displays solid &ldquo;top-line growth&rdquo;, analysts could view the period&rsquo;s performance as positive even if earnings growth, or &ldquo;bottom-line growth&rdquo; is stagnant. Conversely, high net income growth would be tainted if a company failed to produce significant revenue growth. Consistent revenue growth, if accompanied by net income growth, contributes to the value of an enterprise and therefore the stock price.
+      | Revenue is used as an indication of earnings quality. There are several financial ratios attached to it, the most important being gross margin and profit margin. Also, companies use revenue to determine bad debt expense using the income statement method.
+  div(style='position:fixed;left:0;bottom:0;width:100%;background-color:black;color:white;text-align:center;padding-left:200px')
+    b
+      br
+      | Desinged and Developed by-
+    br
+    | Harshal Mittal
+    br
+    | Ashutosh Maurya
+    br
+    | Gautam Sood
+    br

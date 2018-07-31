@@ -1,58 +1,70 @@
-head
-  title= title
-  meta(name='viewport', content='width=device-width, initial-scale=1')
-  link(rel='stylesheet', href='/stylesheets/style.css')
-  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-form(method='GET' action='/logout' align="right")
-  label(class="logoutLb1Pos")
-    button.btn.btn-primary(type='submit' name='logout')
-      k.glyphicon.glyphicon-off
-        | Logout
-      k 
-.container
-  h2(style='color:#CACACA;font-size:30px;')
-    | Welcome #{user} !
-    br
-    br
-    img(src='images/avatar.png', width='80px', height='80px')
-br
-br
-br
-br
-br
-// <div class="col-md-3"></div>
-.col-md-4
-  p(style='color:#CACACA;font-size:19px;')
-    | If you want to
-    br
+doctype html
+title Welcome
+meta(charset='UTF-8')
+meta(name='viewport' content='width=device-width, initial-scale=1')
+link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway')
+link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+link(rel='stylesheet' href='/stylesheets/style.css')
+// Sidebar/menu
+nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-index:3;width:300px;height:100%')
+  br
+  .w3-container.w3-row
+    .w3-col.s4
+      img.w3-circle.w3-margin-right(src="/images/avatar.png' style='width:46px')
+    .w3-col.s8.w3-bar
+      br
+      span
+        | Welcome, 
+        strong
+      br
+  hr
+  .w3-container
+    h5
+  .w3-bar-block
+    a.w3-bar-item.w3-button.w3-padding-16.w3-hide-large.w3-dark-grey.w3-hover-black(href='#' onclick='w3_close()' title='close menu')
+      i.fa.fa-remove.fa-fw
+      | Close Menu
+    a.w3-bar-item.w3-button.w3-padding(href='/edit')
+      i.fa.fa-edit.fa-fw
+      |  Edit Existing Project
+    a.w3-bar-item.w3-button.w3-padding(href='/newproject')
+      i.fa.fa-plus.fa-fw
+      |  Add new Project
+    a.w3-bar-item.w3-button.w3-padding(href='/dashboard')
+      i.fa.fa-user.fa-fw
+      | &nbsp;Go to Dashboard
+    a.w3-bar-item.w3-button.w3-padding(href='/logout')
+      i.glyphicon.glyphicon-off  Logout
+// Overlay effect when opening sidebar on small screens
+#myOverlay.w3-overlay.w3-hide-large.w3-animate-opacity(onclick='w3_close()' style='cursor:pointer' title='close side menu')
+// !PAGE CONTENT!
+.w3-main(style='margin-left:300px;margin-top:3px;')
+  // Header
+  #showcase.w3-container(style='margin-top:30px')
+    h1.w3-jumbo
+      b Time to Revenue
+    h1.w3-xxxlarge.w3-text-red
+      b Cruciality and its need!
+    hr.w3-round(style='width:50px;border:5px solid red')
+  #services.w3-container(style='margin-top:5px')
+    p
+      | Revenue is a crucial part of financial statement analysis. The company&rsquo;s performance is measured to the extent to which its asset inflows (revenues) compare with its asset outflows (expenses). Net income is the result of this equation, but revenue typically enjoys equal attention during a standard earnings call. If a company displays solid &ldquo;top-line growth&rdquo;, analysts could view the period&rsquo;s performance as positive even if earnings growth, or &ldquo;bottom-line growth&rdquo; is stagnant. Conversely, high net income growth would be tainted if a company failed to produce significant revenue growth. Consistent revenue growth, if accompanied by net income growth, contributes to the value of an enterprise and therefore the stock price.
+      | Revenue is used as an indication of earnings quality. There are several financial ratios attached to it, the most important being gross margin and profit margin. Also, companies use revenue to determine bad debt expense using the income statement method.
+  // Footer
+  div(style='position:fixed;left:0;bottom:0;width:100%;background-color:black;color:white;text-align:center;padding-left:200px')
     b
-      | Edit Existing project
-      b  Click below
-  // button.btn.btn-default(type='button' style='width:300px') Show Existing Project
-  form(action='/edit', method='GET')
-    input(type='submit', value='Show Existing Project')
-.col-md-4
-  p(style='color:#CACACA;font-size:19px;')
-    | If you want to
+      br
+      | Desinged and Developed by-
     br
-    b
-      | Add New project
-      b    Click below
-  // button.btn.btn-default(type='button' style='width:300px') Add New Project
-  form(action='/newproject', method='GET')
-    input(type='submit', value='Add New Project')
-.col-md-4
-  p(style='color:#CACACA;font-size:19px;')
-    | If you want to
+    | Harshal Mittal
     br
-    b
-      | Go to Dashboard
-      b    Click below
-  // button.btn.btn-default(type='button' style='width:300px') Add New Project
-  form(action='/dashboard', method='GET')
-    input(type='submit', value='Dashboard')
-br
-.col-md-4
-script(type='text/javascript', src='/javascripts/timeout.js')
+    | Ashutosh Maurya
+    br
+    | Gautam Sood
+    br
+  // End page content
+script(src='/javascripts/welcome.js')
