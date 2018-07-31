@@ -24,7 +24,7 @@ exports.authenticateUser = function(username, password, cb) {
                 bluepages.getUserInfo({email: username}, options, function(err, result) {
                   if(err) {
                     console.log("unable to fetch user info by username");
-                    return null;
+                    cb(err, null);
                   }
                   else {
                     console.log("user info by username fetched");
@@ -45,13 +45,13 @@ exports.authenticateUser = function(username, password, cb) {
                     bluepages.getUserInfo({email: username}, options, function(err, result) {
                       if(err) {
                         console.log("unable to fetch user info by username");
-                        return null;
+                        cb(err, null);
                       }
                       else {
                         console.log("user info by username fetched");
                         console.log(result);
                         var record = { id: result.uid, name: result.name, group: "program-manager" };
-                        return record;
+                        cb(null, record);
                       }
                     });
                   }
@@ -66,13 +66,13 @@ exports.authenticateUser = function(username, password, cb) {
                         bluepages.getUserInfo({email: username}, options, function(err, result) {
                           if(err) {
                             console.log("unable to fetch user info by username");
-                            return null;
+                            cb(err, null);
                           }
                           else {
                             console.log("user info by username fetched");
                             console.log(result);
                             var record = { id: result.uid, name: result.name, group: "service-manager" };
-                            return record;
+                            cb(null, record);
                           }
                         });
                       }
@@ -100,7 +100,7 @@ exports.authenticateID = function(userid, usergrp, cb) {
     bluepages.getUserInfo({uid: id}, options, function(err, result) {
         if(err) {
           console.log("unable to fetch user details by id");
-          return null;
+          cb(err, null);
         }
         else {
           console.log("user info by id fetched");
