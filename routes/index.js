@@ -18,7 +18,7 @@ module.exports = function(passport) {
   router.get('/newproject',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
-      res.render('newproject', { title: 'Add New Project' });
+      res.render('newproject', { title: 'Add New Project', user: req.user.username});
     }
   );
 

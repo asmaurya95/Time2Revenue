@@ -18,7 +18,8 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
     .w3-col.s8.w3-bar
       br
       span
-        | Welcome, 
+        | Welcome, <br> 
+        | #{user}
         strong
       br
   hr
@@ -257,12 +258,13 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
         .col-md-2
       button.btn.btn-primary.btn-block(type='submit') Submit
 // Footer
-div(style='position:fixed;left:0;bottom:0;width:100%;background-color:black;color:white;text-align:center;padding-left:200px')
+//div(style='position:fixed;left:0;bottom:0;width:100%;background-color:black;color:white;text-align:center;padding-left:200px')
   b
     br
-    | Desinged and Developed by-
+    | Designed and Developed by-
   br
   | Harshal Mittal, Ashutosh Maurya, Gautam Sood
   br
-// End page content
-script(src='/javascripts/newproject.js')
+// End page content 
+script(type='text/javascript', src='/javascripts/newproject.js')
+script(type='text/javascript', src='/javascripts/timeout.js')

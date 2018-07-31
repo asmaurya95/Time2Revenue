@@ -14,11 +14,12 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
   br
   .w3-container.w3-row
     .w3-col.s4
-      img.w3-circle.w3-margin-right(src="/images/avatar.png' style='width:46px')
+      img.w3-circle.w3-margin-right(src="/images/avatar.png" style='width:46px')
     .w3-col.s8.w3-bar
       br
       span
-        | Welcome, 
+        | Welcome, <br>
+        | #{user}
         strong
       br
   hr
@@ -67,4 +68,5 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
     | Gautam Sood
     br
   // End page content
-script(src='/javascripts/welcome.js')
+script(type='text/javascript', src='/javascripts/welcome.js')
+script(type='text/javascript', src='/javascripts/timeout.js')
