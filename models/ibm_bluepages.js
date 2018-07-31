@@ -6,22 +6,6 @@ var options = ['uid', 'name'];
 
 exports.authenticateUser = function(username, password, cb) {
   process.nextTick(function() {
-
-    function getUserByUsername(username, usergrp) {
-      bluepages.getUserInfo({email: username}, options, function(err, result) {
-        if(err) {
-          console.log("unable to fetch user info by username");
-          return null;
-        }
-        else {
-          console.log("user info by username fetched");
-          console.log(result);
-          var record = { id: result.uid, name: result.name, group: usergrp };
-          return record;
-        }
-      });
-    }
-
     console.log("GETTING IBM INTRANET DETAILS");
     bluepages.authenticate(username, password, function(err, verified){
         if(err) {
@@ -37,9 +21,17 @@ exports.authenticateUser = function(username, password, cb) {
                 cb(err, null);
               }
               else if(verified) {
-                  var record = getUserByUsername(username, 'admin');
-                  console.log(record);
-                  cb(null, record);
+                bluepages.getUserInfo({email: username}, options, function(err, result) {
+                  if(err) {
+                    console.log("unable to fetch user info by username");
+                    return null;
+                  }
+                  else {
+                    console.log("user info by username fetched");
+                    console.log(result);
+                    var record = { id: result.uid, name: result.name, group: "admin" };
+                    cb(null, record);
+                  }
               }
               else {
                 // check for lead_group
@@ -49,9 +41,17 @@ exports.authenticateUser = function(username, password, cb) {
                     cb(err, null);
                   }
                   else if(verified) {
-                    var record = getUserByUsername(username, 'program-manager');
-                    console.log(record);
-                    cb(null, record);
+                    bluepages.getUserInfo({email: username}, options, function(err, result) {
+                      if(err) {
+                        console.log("unable to fetch user info by username");
+                        return null;
+                      }
+                      else {
+                        console.log("user info by username fetched");
+                        console.log(result);
+                        var record = { id: result.uid, name: result.name, group: "program-manager" };
+                        return record;
+                      }
                   }
                   else {
                     // check for user group
@@ -61,9 +61,17 @@ exports.authenticateUser = function(username, password, cb) {
                         cb(err, null);
                       }
                       else if(verified) {
-                        var record = getUserByUsername(username, 'service-manager');
-                        console.log(record);
-                        cb(null, record);
+                        bluepages.getUserInfo({email: username}, options, function(err, result) {
+                          if(err) {
+                            console.log("unable to fetch user info by username");
+                            return null;
+                          }
+                          else {
+                            console.log("user info by username fetched");
+                            console.log(result);
+                            var record = { id: result.uid, name: result.name, group: "service-manager" };
+                            return record;
+                          }
                       }
                       else {
                         console.log("belongs to no group");
@@ -85,24 +93,18 @@ exports.authenticateUser = function(username, password, cb) {
 
 exports.authenticateID = function(id, usergrp, cb) {
   process.nextTick(function(){
-
-    function getUserById(id, usergrp) {
-        bluepages.getUserInfo({uid: id}, options, function(err, result) {
-            if(err) {
-              console.log("unable to fetch user details by id");
-              return null;
-            }
-            else {
-              console.log("user info by id fetched");
-              console.log(result);
-              var record = { id: result.uid, name: result.name, group: usergrp };
-              return record;
-            }
-        });
-    }
-
     console.log("deserializing user");
-    var record = getUserById(id, usergrp);
-    return record;
+    bluepages.getUserInfo({uid: id}, options, function(err, result) {
+        if(err) {
+          console.log("unable to fetch user details by id");
+          return null;
+        }
+        else {
+          console.log("user info by id fetched");
+          console.log(result);
+          var record = { id: result.uid, name: result.name, group: usergrp };
+          return record;
+        }
+    });
   });
 }
