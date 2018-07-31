@@ -49,6 +49,7 @@ exports.authenticateUser = function(username, password, cb) {
               }
               if(verified) {
                   var record = getUserByUsername(username, 'admin');
+                  console.log(record);
                   cb(null, record);
               }
               else {
@@ -60,6 +61,7 @@ exports.authenticateUser = function(username, password, cb) {
                   }
                   if(verified) {
                     var record = getUserByUsername(username, 'program-manager');
+                    console.log(record);
                     cb(null, record);
                   }
                   else {
@@ -71,6 +73,7 @@ exports.authenticateUser = function(username, password, cb) {
                       }
                       if(verified) {
                         var record = getUserByUsername(username, 'service-manager');
+                        console.log(record);
                         cb(null, record);
                       }
                       else {
