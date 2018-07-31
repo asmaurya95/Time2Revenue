@@ -97,7 +97,7 @@ exports.authenticateUser = function(username, password, cb) {
 exports.authenticateID = function(userid, usergrp, cb) {
   process.nextTick(function(){
     console.log("deserializing user");
-    bluepages.getUserInfo({uid: id}, options, function(err, result) {
+    bluepages.getUserInfo({uid: userid}, options, function(err, result) {
         if(err) {
           console.log("unable to fetch user details by id");
           cb(err, null);
