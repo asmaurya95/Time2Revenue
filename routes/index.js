@@ -10,7 +10,7 @@ module.exports = function(passport) {
   router.get('/',
     [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
-      res.render('welcome', { title: 'Time2Revenue', user: req.user.name });
+      res.render('welcome', { title: 'Time2Revenue', user: req.user.username });
     }
   );
 
