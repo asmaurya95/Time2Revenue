@@ -1,7 +1,6 @@
 var express = require('express');
 var datetime = require('node-datetime');
 var router = express.Router();
-var User = require('../models/user');
 var db = require('../models/projects');
 var projectName;
 
