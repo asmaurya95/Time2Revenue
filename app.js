@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var db = require('./models/user.js');
+//var db = require('./models/user.js');
+var ibm_db = require('./models/ibm_bluepages.js')
 
 // passport Stuff
 var passport = require('passport');
@@ -21,16 +22,24 @@ var LocalStrategy = require('passport-local').Strategy;
 // serializing, and querying the user record by ID from the database when
 // deserializing.
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  console.log(user);
+  done(null, user);
 });
 
-passport.deserializeUser(function(id, done) {
-  db.findById(id, function (err, user) {
+passport.deserializeUser(function(user, done) {
+  /*db.findById(id, function (err, user) {
     if (err || user.length == 0)
       done(err);
     else{
       //console.log(user);
       done(null, user);
+    }
+  });*/
+  ibm_db.authenticateID(user.id, user.group, function(err, record) {
+    if(err || record.length == 0)
+      done(err);
+    else {
+      done(null, record);
     }
   });
 });
@@ -48,11 +57,17 @@ passport.use(new LocalStrategy(
     usernameField: 'email'
   },
   function(username, password, done) {
-    db.findByUsername(username, function(err, user) {
+    /*db.findByUsername(username, function(err, user) {
       //console.log(user.id);
       if (err) { return done(err); }
       if (!user) { return done(null, false); }
       if (user.value.password != password) { return done(null, false); }
+      return done(null, user);
+    });*/
+    ibm_db.authenticateUser(username, password, function(err, user){
+      //console.log(user.id);
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
       return done(null, user);
     });
 }));

@@ -6,11 +6,12 @@ exports.findById = function(id, cb) {
   process.nextTick(function() {
     db.get(id, function(err, body){
       if (body) {
-        //console.log(body);
+        console.log("deserializing...");
+        console.log(body);
         cb(null, body);
       }
       else {
-        cb(new Error('User ' + id + ' does not exist'))
+        cb(new Error('User ' + id + ' does not exist'), null);
       }
     })
   });
@@ -27,6 +28,8 @@ exports.findByUsername = function(username, cb) {
             record = doc;
           });
         }
+        console.log("record is....");
+        console.log(record);
         if(record)
           return cb(null, record);
         console.log('username not found in db');

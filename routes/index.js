@@ -9,16 +9,15 @@ module.exports = function(passport) {
 
   /* GET Home Page */
   router.get('/',
-    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
-      console.log(req.user);
-      res.render('welcome', { title: 'Time2Revenue', user: req.user.username });
+      res.render('welcome', { title: 'Time2Revenue', user: req.user.name });
     }
   );
 
   /*GET add new project page */
   router.get('/newproject',
-    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
       res.render('newproject', { title: 'Add New Project' });
     }
@@ -26,7 +25,7 @@ module.exports = function(passport) {
 
   /*POST add new project page*/
   router.post('/newproject',
-    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
       var projectData = req.body;
       db.insertDocument(projectData);
@@ -57,7 +56,7 @@ module.exports = function(passport) {
 
   /*GET Edit Project Page */
   router.get('/editproject',
-    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
       db.getDocument(projectName, function(err, doc) {
         console.log(doc);
@@ -113,7 +112,7 @@ module.exports = function(passport) {
 
   /*POST Edit Project Page*/
   router.post('/editproject',
-    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
       db.getDocument(projectName, function(err, doc) {
           var projectData = req.body;
@@ -128,7 +127,7 @@ module.exports = function(passport) {
 
   /*GET Existing Projects Page*/
   router.get('/edit',
-    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
       db.getNames(function(err, doc){
           console.log(doc);
@@ -139,7 +138,7 @@ module.exports = function(passport) {
 
   /*POST Existing Projects Page*/
   router.post('/edit',
-    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager'])],
+    [require('connect-ensure-login').ensureLoggedIn(), require('permission')(['program-manager', 'admin'])],
     function(req, res) {
       console.log(req.body);
       projectName = req.body.proj_name;
