@@ -151,7 +151,7 @@ module.exports = function(passport) {
     (req,res) => {
       db.getNames(function(err, doc){
         console.log(doc);
-        res.render('dashboard', {title: 'Dashboard', projlist: doc});
+        res.render('dashboard', {title: 'Dashboard', projlist: doc, user: req.user.username});
       });
   });
 
