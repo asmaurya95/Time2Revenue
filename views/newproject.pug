@@ -10,7 +10,7 @@ script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
 script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
 link(rel='stylesheet' href='public/stylesheets/style.css')
 // Sidebar/menu
-nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-index:3;width:300px;height:100%')
+nav#mySidebar.w3-sidebar.w3-collapse.w3-blue.w3-top.w3-animate-left(style='z-index:3;width:300px;height:100%')
   br
   .w3-container.w3-row
     .w3-col.s4
@@ -18,8 +18,8 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
     .w3-col.s8.w3-bar
       br
       span
-        | Welcome, <br> 
-        | #{user}
+        | Welcome, 
+        br
         strong
       br
   hr
@@ -35,12 +35,12 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
     a.w3-bar-item.w3-button.w3-padding(href='/edit')
       i.fa.fa-edit.fa-fw
       |  Edit Existing Project
-    a.w3-bar-item.w3-button.w3-padding.w3-blue(href='/newproject')
+    a.w3-bar-item.w3-button.w3-padding.w3-brown(href='/newproject')
       i.fa.fa-plus.fa-fw
       |  Add new Project
     a.w3-bar-item.w3-button.w3-padding(href='/dashboard')
       i.fa.fa-user.fa-fw
-      | &nbsp;Go to Dashboard
+      | &nbsp;Dashboard
     a.w3-bar-item.w3-button.w3-padding(href='/logout')
       i.glyphicon.glyphicon-off  
       | &nbsp; Logout
@@ -64,28 +64,29 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
       h3
         p#project_details.w3-button(style='text-align:center;background-color:#e5eecc;border:solid 1px #c3c3c3;width:100%') Click to enter Project Details.
       #content1(style='display:none;text-align:center;width:100%;color:black')
-        .col-md-4
-        .col-md-4(style='background-color:#e5eecc;border:solid 1px #c3c3c3;')
+        .col-md-2
+        .col-md-8(style='background-color:#e5eecc;border:solid 1px #c3c3c3;')
           h2
           br
-          .form-group
-            label(for='text') Customer Name:
-            input#cust_name.form-control(type='text' placeholder='Enter Customer Name' name='cust_name' required)
-          .form-group
-            label(for='text') Project Name:
-            input#proj_name.form-control(type='text' placeholder='Enter Project Name' name='proj_name' required)
-          .form-group
-            label(for='text') Contract Type:
-            input#contr_typ.form-control(type='text' placeholder='Enter Contract Type' name='contr_typ' required)
-          .form-group
-            label(for='date') Contract End Date:
-            input#contr_end.form-control(type='date' placeholder='Enter Contract End Date' name='contr_end' required)
-        .col-md-4
+          .col-md-6
+            .form-group
+              label(for='text') Customer Name:
+              input#cust_name.form-control(type='text' placeholder='Enter Customer Name' name='cust_name' required='')
+            .form-group
+              label(for='text') Project Name:
+              input#proj_name.form-control(type='text' placeholder='Enter Project Name' name='proj_name' required='')
+          .col-md-6
+            .form-group
+              label(for='text') Contract Type:
+              input#contr_typ.form-control(type='text' placeholder='Enter Contract Type' name='contr_typ' required='')
+            .form-group
+              label(for='date') Contract End Date:
+              input#contr_end.form-control(type='date' placeholder='Enter Contract End Date' name='contr_end' required='')
+          .col-md-2
       h3
         p#ttr_details.w3-button(style='text-align:center;background-color:#e5eecc;border:solid 1px #c3c3c3;width:100%;color:black') Click to enter TTR Details.
       #content2(style='display:none;')
         .col-md-12(style='text-align:center;background-color:#e5eecc;border:solid 1px #c3c3c3;color:black')
-          h2(style='')
           br
           .table-responsive
             table.table
@@ -97,8 +98,17 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
                   th Actual Start Date
                   th Actual End Date
                   th Comments
+              select#data(style='width:220px;height:30px;border:1px')
+                option(value='none') Select Phase
+                option(value='disc_phase') Discovery Phase
+                option(value='des_phase') Design Phase
+                option(value='env_phase') Environment Readiness Phase
+                option(value='dev_phase') Development Phase
+                option(value='test_phase') Testing Phase
+                option(value='golv_phase') Go Live
+              br
               tbody
-                tr
+                tr#disc_phase(style='display:none')
                   td Discovery Phase
                   td
                     .form-group
@@ -116,7 +126,7 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
                     .form-group
                       input#Dis_comment.form-control(type='text' placeholder='' name='Dis_comment')
               tbody
-                tr
+                tr#des_phase(style='display:none')
                   td Design Phase
                   td
                     .form-group
@@ -134,7 +144,7 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
                     .form-group
                       input#Des_comment.form-control(type='text' placeholder='' name='Des_comment')
               tbody
-                tr
+                tr#env_phase(style='display:none')
                   td Environment Readiness Phase
                   td
                     .form-group
@@ -152,7 +162,7 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
                     .form-group
                       input#env_comment.form-control(type='text' placeholder='' name='env_comment')
               tbody
-                tr
+                tr#dev_phase(style='display:none')
                   td Development Phase
                   td
                     .form-group
@@ -170,7 +180,7 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
                     .form-group
                       input#Dev_comment.form-control(type='text' placeholder='' name='Dev_comment')
               tbody
-                tr
+                tr#test_phase(style='display:none')
                   td Testing Phase
                   td
                     .form-group
@@ -188,7 +198,7 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
                     .form-group
                       input#tes_comment.form-control(type='text' placeholder='' name='tes_comment')
               tbody
-                tr
+                tr#golv_phase(style='display:none')
                   td Go-Live
                   td
                     .form-group
@@ -208,8 +218,8 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
       h3
         p#effort_details.w3-button(style='text-align:center;background-color:#e5eecc;border:solid 1px #c3c3c3;width:100%') Click to enter Effort Details.
       #content3(style='display:none')
-        .col-md-2
-        .col-md-8(style='text-align:center;background-color:#e5eecc;border:solid 1px #c3c3c3;color:black')
+        .col-md-4
+        .col-md-4(style='text-align:center;background-color:#e5eecc;border:solid 1px #c3c3c3;color:black')
           br
           .table-responsive
             table.table
@@ -263,18 +273,19 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
                   td
                     .form-group
                       input#pm_act.form-control(type='number' placeholder='' name='pm_act')
-        .col-md-2
+        .col-md-4
       button.btn.btn-primary.btn-block(type='submit') Submit
 // Footer
-//div(style='position:fixed;left:0;bottom:0;width:100%;background-color:black;color:white;text-align:center;padding-left:200px')
-  b
-    br
-    | Designed and Developed by-
+//
+  div(style='position:fixed;left:0;bottom:0;width:100%;background-color:black;color:white;text-align:center;padding-left:200px')b
+  br
+  | Designed and Developed by-
   br
   | Harshal Mittal, Ashutosh Maurya, Gautam Sood
   br
-// End page content 
-script(type='text/javascript', src='/javascripts/newproject.js')
-script(type='text/javascript', src='/javascripts/timeout.js')
-script(type='text/javascript', src='/javascripts/nav.js')
-script(type='text/javascript', src='/javascripts/form.js')
+// End page content
+script(type='text/javascript' src='/javascripts/newproject.js')
+script(type='text/javascript' src='/javascripts/timeout.js')
+script(type='text/javascript' src='/javascripts/nav.js')
+script(type='text/javascript' src='/javascripts/form.js')
+script(src='/javascripts/ttr_phase.js')
