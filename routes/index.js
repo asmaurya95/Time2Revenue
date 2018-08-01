@@ -59,7 +59,8 @@ module.exports = function(passport) {
     function(req, res) {
       db.getDocument(projectName, function(err, doc) {
         console.log(doc);
-        res.render('editproject', { title: 'Edit Project',
+        res.render('editproject', { user: req.user.username,
+                                    title: 'Edit Project',
                                     cust_name: doc.cust_name,
                                     proj_name: doc.proj_name,
                                     contr_typ: doc.contr_typ,
@@ -130,7 +131,7 @@ module.exports = function(passport) {
     function(req, res) {
       db.getNames(function(err, doc){
           console.log(doc);
-          res.render('edit', { title: 'Existing Projects', projlist: doc});
+          res.render('edit1', { title: 'Existing Projects', projlist: doc, user: req.user.username});
       });
     }
   );

@@ -29,6 +29,9 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
     a.w3-bar-item.w3-button.w3-padding-16.w3-hide-large.w3-dark-grey.w3-hover-black(href='#' onclick='w3_close()' title='close menu')
       i.fa.fa-remove.fa-fw
       | Close Menu
+    a.w3-bar-item.w3-button.w3-padding(href='/')
+      i.fa.fa-home.fa-fw
+      | &nbsp;Home
     a.w3-bar-item.w3-button.w3-padding(href='/edit')
       i.fa.fa-edit.fa-fw
       |  Edit Existing Project
@@ -39,13 +42,18 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
       i.fa.fa-user.fa-fw
       | &nbsp;Go to Dashboard
     a.w3-bar-item.w3-button.w3-padding(href='/logout')
-      i.glyphicon.glyphicon-off  Logout
+      i.glyphicon.glyphicon-off  
+      | &nbsp; Logout
+// Top menu on small screens
+header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
+  a.w3-button.w3-red.w3-margin-right(href='javascript:void(0)' onclick='w3_open()') &#x2630;
+  span IBM
 // Overlay effect when opening sidebar on small screens
 #myOverlay.w3-overlay.w3-hide-large.w3-animate-opacity(onclick='w3_close()' style='cursor:pointer' title='close side menu')
 // !PAGE CONTENT!
 .w3-main(style='margin-left:300px;margin-top:3px;')
   // Header
-  #showcase.w3-container(style='margin-top:30px')
+  #showcase.w3-container(style='margin-top:50px')
     h1.w3-jumbo
       b Add New Project:
     h1.w3-xxxlarge.w3-text-red
@@ -62,16 +70,16 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
           br
           .form-group
             label(for='text') Customer Name:
-            input#cust_name.form-control(type='text' placeholder='Enter Customer Name' name='cust_name' required='')
+            input#cust_name.form-control(type='text' placeholder='Enter Customer Name' name='cust_name' required)
           .form-group
             label(for='text') Project Name:
-            input#proj_name.form-control(type='text' placeholder='Enter Project Name' name='proj_name' required='')
+            input#proj_name.form-control(type='text' placeholder='Enter Project Name' name='proj_name' required)
           .form-group
             label(for='text') Contract Type:
-            input#contr_typ.form-control(type='text' placeholder='Enter Contract Type' name='contr_typ' required='')
+            input#contr_typ.form-control(type='text' placeholder='Enter Contract Type' name='contr_typ' required)
           .form-group
             label(for='date') Contract End Date:
-            input#contr_end.form-control(type='date' placeholder='Enter Contract End Date' name='contr_end' required='')
+            input#contr_end.form-control(type='date' placeholder='Enter Contract End Date' name='contr_end' required)
         .col-md-4
       h3
         p#ttr_details.w3-button(style='text-align:center;background-color:#e5eecc;border:solid 1px #c3c3c3;width:100%;color:black') Click to enter TTR Details.
@@ -97,7 +105,7 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
                       input#Dis_plan_strdt.form-control(type='date' placeholder='' name='Dis_plan_strdt')
                   td
                     .form-group
-                      input#Dis_plan_enddt.form-control(type='date' placeholder='' name='Dis_p	lan_enddt')
+                      input#Dis_plan_enddt.form-control(type='date' placeholder='' name='Dis_plan_enddt')
                   td
                     .form-group
                       input#Dis_act_strdt.form-control(type='date' placeholder='' name='Dis_act_strdt')
@@ -268,3 +276,5 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
 // End page content 
 script(type='text/javascript', src='/javascripts/newproject.js')
 script(type='text/javascript', src='/javascripts/timeout.js')
+script(type='text/javascript', src='/javascripts/nav.js')
+script(type='text/javascript', src='/javascripts/form.js')

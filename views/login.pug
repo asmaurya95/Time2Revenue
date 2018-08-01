@@ -12,8 +12,8 @@ nav#mySidebar.w3-sidebar.w3-red.w3-collapse.w3-top.w3-large.w3-padding(style='z-
   br
   a.w3-button.w3-hide-large.w3-display-topleft(href='javascript:void(0)' onclick='w3_close()' style='width:100%;font-size:22px') Close Menu
   .w3-container
-    h3.w3-padding-64
-      img(src='/images/ibm.jpg' width='200px' height='80px')
+    h3.w3-padding-54
+      img(src='/images/ibm.jpg' width='200px' height='100px')
       b(style='font-size:80px;padding-left:50px;color:white') IBM
   .w3-bar-block
     h2(align='center') Login
@@ -22,9 +22,9 @@ nav#mySidebar.w3-sidebar.w3-red.w3-collapse.w3-top.w3-large.w3-padding(style='z-
       .form-group
         label(for='email') Email Address:
         br
-        input#email.form-control(type='email' name='email' placeholder='IBM Intranet Email ID' required='')
+        input#email.form-control(type='email' name='email' placeholder='IBM Intranet Email ID' required)
         label(for='pwd') Password:
-        input#password.form-control(type='password' name='password' placeholder='IBM Intranet Password' required='')
+        input#password.form-control(type='password' name='password' placeholder='IBM Intranet Password' required)
         br
         button.btn.btn-primary(type='submit' name='login') Login
 // Top menu on small screens
@@ -57,3 +57,4 @@ header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
     br
     | Gautam Sood
     br
+script(type='text/javascript', src='/javascripts/nav.js')
