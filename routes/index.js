@@ -131,7 +131,7 @@ module.exports = function(passport) {
     function(req, res) {
       db.getNames(function(err, doc){
           console.log(doc);
-          res.render('edit1', { title: 'Existing Projects', projlist: doc, user: req.user.username});
+          res.render('edit', { title: 'Existing Projects', projlist: doc, user: req.user.username});
       });
     }
   );
@@ -152,7 +152,10 @@ module.exports = function(passport) {
     (req,res) => {
       db.getNames(function(err, doc){
         console.log(doc);
-        res.render('dashboard', {title: 'Dashboard', projlist: doc, user: req.user.username});
+        var group = false;
+        if(req.user.group == 'program-manager' || req.user.group == 'admin')
+          group = true;
+        res.render('dashboard', {title: 'Dashboard', projlist: doc, user: req.user.username, grp: group});
       });
   });
 

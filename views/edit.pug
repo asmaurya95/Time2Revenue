@@ -1,34 +1,91 @@
 doctype html
-head
-  title= title
-  meta(name='viewport' content='width=device-width, initial-scale=1')
-  link(rel='stylesheet' href='/stylesheets/existing.css')
-  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
-  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
-form(method='GET' action='/logout' align="right")
-  label(class="logoutLb1Pos")
-    button.btn.btn-primary(type='submit' name='logout')
-      k.glyphicon.glyphicon-off
-        | Logout
-      k
-.container
-  .col-md-4
-  .col-md-4
-    br
-    br
-    br
-    h2(style='color:#CACACA;font-size:30px') Choose a Project to Edit.
-    br
-    br
-    each val in projlist  
+title= title
+meta(charset='UTF-8')
+meta(name='viewport' content='width=device-width, initial-scale=1')
+link(rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css')
+link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway')
+link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+link(rel='stylesheet' href='/stylesheets/style.css')
+// Sidebar/menu
+nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-index:3;width:300px;height:100%')
+  br
+  .w3-container.w3-row
+    .w3-col.s4
+      img.w3-circle.w3-margin-right(src="/images/avatar.png" style='width:46px')
+    .w3-col.s8.w3-bar
       br
-      div.form-group
-        form(action = '/edit', method = 'POST')
-          input(type="text", id="proj_name", name="proj_name", value=val, readonly) 
-          |
-          |
-          input(type="submit", value="EDIT")
-      br            
-  .col-md-4
+      span
+        | Welcome, <br>
+        | #{user}
+        strong
+      br
+  hr
+  .w3-container
+    h5
+  .w3-bar-block
+    a.w3-bar-item.w3-button.w3-padding-16.w3-hide-large.w3-dark-grey.w3-hover-black(href='#' onclick='w3_close()' title='close menu')
+      i.fa.fa-remove.fa-fw
+      | &nbsp;Close Menu
+    a.w3-bar-item.w3-button.w3-padding(href='/')
+      i.fa.fa-home.fa-fw
+      | &nbsp;Home
+    a.w3-bar-item.w3-button.w3-padding.w3-blue(href='/edit')
+      i.fa.fa-edit.fa-fw
+      | &nbsp;Edit Existing Project
+    a.w3-bar-item.w3-button.w3-padding(href='/newproject')
+      i.fa.fa-plus.fa-fw
+      | &nbsp;Add new Project
+    a.w3-bar-item.w3-button.w3-padding(href='/dashboard')
+      i.fa.fa-user.fa-fw
+      | &nbsp;Go to Dashboard
+    a.w3-bar-item.w3-button.w3-padding(href='/logout')
+      i.glyphicon.glyphicon-off  
+      | &nbsp; Logout
+// Top menu on small screens
+header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
+  a.w3-button.w3-red.w3-margin-right(href='javascript:void(0)' onclick='w3_open()') &#x2630;
+  span IBM
+// Overlay effect when opening sidebar on small screens
+#myOverlay.w3-overlay.w3-hide-large.w3-animate-opacity(onclick='w3_close()' style='cursor:pointer' title='close side menu')
+// !PAGE CONTENT!
+.w3-main(style='margin-left:300px;margin-top:3px;')
+  // Header
+  #showcase.w3-container(style='margin-top:50px')
+    h1.w3-jumbo
+      b Edit Existing Project:
+    h1.w3-xxxlarge.w3-text-red
+      b 
+    hr.w3-round(style='width:50px;border:5px solid red')
+    form(action='/edit', method='POST')
+       #services.w3-container(style='margin-top:5px')
+        h3
+         p#project_details.w3-button(style='text-align:center;background-color:#e5eecc;border:solid 1px #c3c3c3;width:100%') Project Name.
+          br
+          br
+          select(name='proj_name')
+            each val in projlist
+              option= val
+        br
+        br
+        br
+       .col-md-12
+         button.btn.btn-primary.btn-block(type='submit') EDIT
+  // Footer
+  //div(style='position:fixed;left:0;bottom:0;width:100%;background-color:black;color:white;text-align:center;padding-left:200px')
+    b
+      br
+      | Desinged and Developed by-
+    br
+    | Harshal Mittal
+    br
+    | Ashutosh Maurya
+    br
+    | Gautam Sood
+    br
+  // End page content
+script(type='text/javascript', src='/javascripts/welcome.js')
+script(type='text/javascript', src='/javascripts/nav.js')
 script(type='text/javascript', src='/javascripts/timeout.js')

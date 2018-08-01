@@ -30,22 +30,23 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
     a.w3-bar-item.w3-button.w3-padding-16.w3-hide-large.w3-dark-grey.w3-hover-black(href='#' onclick='w3_close()' title='close menu')
       i.fa.fa-remove.fa-fw
       | Close Menu
-    a.w3-bar-item.w3-button.w3-padding(href='/edit')
-      i.fa.fa-edit.fa-fw
-      |  Edit Existing Project
-    a.w3-bar-item.w3-button.w3-padding(href='/newproject')
-      i.fa.fa-plus.fa-fw
-      |  Add new Project
-    a.w3-bar-item.w3-button.w3-padding.w3-blue(href='/dashboard')
-      i.fa.fa-user.fa-fw
-      | &nbsp;Go to Dashboard
+    #{grp}
+    if grp
+      a.w3-bar-item.w3-button.w3-padding(href='/')
+        i.fa.fa-home.fa-fw
+        |  Home
     a.w3-bar-item.w3-button.w3-padding(href='/logout')
-      i.glyphicon.glyphicon-off  Logout
+      i.glyphicon.glyphicon-off 
+      |  Logout
+// Top menu on small screens
+header.w3-container.w3-top.w3-hide-large.w3-red.w3-xlarge.w3-padding
+  a.w3-button.w3-red.w3-margin-right(href='javascript:void(0)' onclick='w3_open()') &#x2630;
+  span IBM
 #myOverlay.w3-overlay.w3-hide-large.w3-animate-opacity(onclick='w3_close()' style='cursor:pointer' title='close side menu')
 // !PAGE CONTENT!
 .w3-main(style='margin-left:300px;margin-top:3px;')
   // Header
-  #showcase.w3-container(style='margin-top:30px')
+  #showcase.w3-container(style='margin-top:50px')
     h1.w3-jumbo
       b Result Dashboard:
     h1.w3-xxxlarge.w3-text-red
@@ -78,4 +79,4 @@ nav#mySidebar.w3-sidebar.w3-collapse.w3-red.w3-top.w3-animate-left(style='z-inde
        button.btn.btn-primary.btn-block(type='submit') Submit
 script(type='text/javascript', src='/javascripts/timeout.js')
 script(type='text/javascript', src='/javascripts/newproject.js')
-script(type='text/javascript', src='/javascripts/timeout.js')
+script(type='text/javascript', src='/javascripts/nav.js')

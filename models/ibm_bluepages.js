@@ -29,7 +29,7 @@ exports.authenticateUser = function(username, password, cb) {
                   else {
                     console.log("user info by username fetched");
                     console.log(result);
-                    var record = { id: result.uid, name: result.name, group: "admin" };
+                    var record = { id: result.uid, username: result.name, group: "admin" };
                     cb(null, record);
                   }
                 });
@@ -50,7 +50,7 @@ exports.authenticateUser = function(username, password, cb) {
                       else {
                         console.log("user info by username fetched");
                         console.log(result);
-                        var record = { id: result.uid, name: result.name, group: "program-manager" };
+                        var record = { id: result.uid, username: result.name, group: "program-manager" };
                         cb(null, record);
                       }
                     });
@@ -71,7 +71,7 @@ exports.authenticateUser = function(username, password, cb) {
                           else {
                             console.log("user info by username fetched");
                             console.log(result);
-                            var record = { id: result.uid, name: result.name, group: "service-manager" };
+                            var record = { id: result.uid, username: result.name, group: "service-manager" };
                             cb(null, record);
                           }
                         });
@@ -105,7 +105,7 @@ exports.authenticateID = function(userid, usergrp, cb) {
         else {
           console.log("user info by id fetched");
           console.log(result);
-          var record = { id: result.uid, name: result.name, group: usergrp };
+          var record = { id: result.uid, username: result.name, group: usergrp };
           cb(null, record);
         }
       });
