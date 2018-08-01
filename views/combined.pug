@@ -6,8 +6,15 @@ head
   meta(http-equiv='X-UA-Compatible', content='ie=edge')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+form(method='GET' action='/dashboard' align="right")
+  button.btn.btn-primary(type='submit')
+    k
+      | Go Back
+    k
+br
+br
 form(method='GET' action='/logout' align="right")
-  button.btn.btn-primary(type='submit' name='logout')
+  button.btn.btn-primary(type='submit')
     k.glyphicon.glyphicon-off
       | Logout
     k
