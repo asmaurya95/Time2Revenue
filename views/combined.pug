@@ -17,32 +17,22 @@ form(method='GET', action='/logout', align='right')
     k.glyphicon.glyphicon-off Logout
     k
 // TTR
+.row
 .col-md-6
-  canvas#chart1(width='800', height='450')
-  br
-  br
-  br
-  br
-  br
+    canvas#chart1(width='800', height='450')
+
 // svpw
 .col-md-6
-  canvas#chart3(width='800', height='450')
-  br
-  br
-  br
-  br
-  br
+    canvas#chart3(width='800', height='450')
+
 // effdiv
+.row
 .col-md-6
-  canvas#chart2(width='800', height='450')
-  br
-  br
-  br
-  br
-  br
+    canvas#chart2(width='800', height='450')
+
 // cost
 .col-md-6
-  canvas#chart4(width='800', height='450')
+    canvas#chart4(width='800', height='450')
 script.
   //ttr
   let myChart = document.getElementById('chart1').getContext('2d');
@@ -51,7 +41,7 @@ script.
   // Chart.defaults.global.defaultFontSize = 18;
   // Chart.defaults.global.defaultFontColor = '#777';
   let massPopChart = new Chart(myChart, {
-  type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
+  type: 'bar', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
   data: {
   labels: ["Planned", "Actual"],
   datasets: [{
@@ -144,7 +134,7 @@ script.
   let massPopChart3 = new Chart(document.getElementById("chart3"), {
   type: 'bar',
   data: {
-  labels: ["Discovery Phase", "Design Phase", "Environment Readiness Phase", "Development Phase", "Testing Phase", "Go-live"],
+  labels: ["DisPhase", "DesPhase", "Env", "Dev", "Test", "Go-live"],
   datasets: [{
   label: "Actual",
   backgroundColor: "#3e95cd",
