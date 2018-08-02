@@ -1,10 +1,24 @@
 $(document).ready(function(){
+  var contract_end;
+
+  $("#contr_end").change(function () {
+    contract_end = document.getElementById("contr_end").value;
+  });
+
   $("#Dis_plan_enddt").change(function () {
     var startDate = document.getElementById("Dis_plan_strdt").value;
     var endDate = document.getElementById("Dis_plan_enddt").value;
     if ((Date.parse(endDate) <= Date.parse(startDate))) {
         alert("End date should be greater than Start date");
         document.getElementById("Dis_plan_enddt").value = '';
+    }
+    if(!contract_end) {
+      alert("Enter contract end date first !")
+      document.getElementById("Dis_plan_enddt").value = '';
+    }
+    else if(Date.parse(contract_end) < Date.parse(endDate)) {
+      alert("Cannot be after Contract End Date!");
+      document.getElementById("Dis_plan_enddt").value = '';
     }
     $("#Dis_plan_strdt").prop('required',true);
   });
@@ -15,6 +29,14 @@ $(document).ready(function(){
     if ((Date.parse(endDate) <= Date.parse(startDate))) {
         alert("End date should be greater than Start date");
         document.getElementById("Dis_act_enddt").value = '';
+    }
+    if(!contract_end) {
+      alert("Enter contract end date first !")
+      document.getElementById("Dis_act_enddt").value = '';
+    }
+    else if(Date.parse(contract_end) < Date.parse(endDate)) {
+      alert("Cannot be after Contract End Date!");
+      document.getElementById("Dis_act_enddt").value = '';
     }
     $("#Dis_act_strdt").prop('required',true);
   });
@@ -31,6 +53,14 @@ $(document).ready(function(){
     $("#Dis_act_strdt").prop('required',true);
     $("#Dis_act_enddt").prop('required',true);
   }
+  if(!contract_end) {
+    alert("Enter contract end date first !")
+    document.getElementById("Dis_plan_strdt").value = '';
+  }
+  else if(Date.parse(contract_end) < Date.parse(startDate)) {
+    alert("Cannot be after Contract End Date!");
+    document.getElementById("Dis_plan_strdt").value = '';
+  }
   });
 
   $("#Dis_act_strdt").change(function () {
@@ -39,6 +69,14 @@ $(document).ready(function(){
     if ((Date.parse(endDate) <= Date.parse(startDate))) {
         alert("End date should be greater than Start date");
         document.getElementById("Dis_act_strdt").value = '';
+    }
+    if(!contract_end) {
+      alert("Enter contract end date first !")
+      document.getElementById("Dis_act_strdt").value = '';
+    }
+    else if(Date.parse(contract_end) < Date.parse(startDate)) {
+      alert("Cannot be after Contract End Date!");
+      document.getElementById("Dis_plan_enddt").value = '';
     }
     $("#Dis_act_enddt").prop('required',true);
   });
@@ -50,6 +88,14 @@ $(document).ready(function(){
         alert("End date should be greater than Start date");
         document.getElementById("Des_plan_enddt").value = '';
     }
+    if(!contract_end) {
+      alert("Enter contract end date first !")
+      document.getElementById("Des_plan_enddt").value = '';
+    }
+    else if(Date.parse(contract_end) < Date.parse(endDate)) {
+      alert("Cannot be after Contract End Date!");
+      document.getElementById("Des_plan_enddt").value = '';
+    }
     $("#Des_plan_strdt").prop('required',true);
   });
 
@@ -59,6 +105,14 @@ $(document).ready(function(){
     if ((Date.parse(endDate) <= Date.parse(startDate))) {
         alert("End date should be greater than Start date");
         document.getElementById("Des_act_enddt").value = '';
+    }
+    if(!contract_end) {
+      alert("Enter contract end date first !")
+      document.getElementById("Des_act_enddt").value = '';
+    }
+    else if(Date.parse(contract_end) < Date.parse(endDate)) {
+      alert("Cannot be after Contract End Date!");
+      document.getElementById("Des_act_enddt").value = '';
     }
     $("#Des_act_strdt").prop('required',true);
   });
@@ -94,6 +148,14 @@ $(document).ready(function(){
         alert("End date should be greater than Start date");
         document.getElementById("Dev_plan_enddt").value = '';
     }
+    if(!contract_end) {
+      alert("Enter contract end date first !")
+      document.getElementById("Dev_plan_enddt").value = '';
+    }
+    else if(Date.parse(contract_end) < Date.parse(endDate)) {
+      alert("Cannot be after Contract End Date!");
+      document.getElementById("Dev_plan_enddt").value = '';
+    }
     $("#Dev_plan_strdt").prop('required',true);
   });
 
@@ -103,6 +165,14 @@ $(document).ready(function(){
     if ((Date.parse(endDate) <= Date.parse(startDate))) {
         alert("End date should be greater than Start date");
         document.getElementById("Dev_act_enddt").value = '';
+    }
+    if(!contract_end) {
+      alert("Enter contract end date first !")
+      document.getElementById("Dev_act_enddt").value = '';
+    }
+    else if(Date.parse(contract_end) < Date.parse(endDate)) {
+      alert("Cannot be after Contract End Date!");
+      document.getElementById("Dev_act_enddt").value = '';
     }
     $("#Dev_act_strdt").prop('required',true);
   });

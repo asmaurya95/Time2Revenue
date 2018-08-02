@@ -15,6 +15,11 @@ $(document).ready(function(){
         $("#content3").slideToggle("slow");
         var $target = $('html,body');
         $target.animate({scrollTop: $target.height()}, 800);
-    });
+  });
+
+  $("#data").click(function(){
+        var $target = $('html,body');
+        $target.animate({scrollTop: $target.height()}, 800);
+  });
 
 });
