@@ -1,25 +1,23 @@
 doctype html
 head
-  title= title
+  title
   meta(charset='UTF-8')
   meta(name='viewport', content='width=device-width, initial-scale=1.0')
   meta(http-equiv='X-UA-Compatible', content='ie=edge')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js')
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
-form(method='GET' action='/dashboard' align="right")
+form(method='GET', action='/dashboard', align='right')
   button.btn.btn-primary(type='submit')
-    k
-      | Go Back
+    k Go Back
     k
 br
 br
-form(method='GET' action='/logout' align="right")
+form(method='GET', action='/logout', align='right')
   button.btn.btn-primary(type='submit')
-    k.glyphicon.glyphicon-off
-      | Logout
+    k.glyphicon.glyphicon-off Logout
     k
 // TTR
-.container
+.col-md-6
   canvas#chart1(width='800', height='450')
   br
   br
@@ -27,7 +25,7 @@ form(method='GET' action='/logout' align="right")
   br
   br
 // svpw
-.container
+.col-md-6
   canvas#chart3(width='800', height='450')
   br
   br
@@ -35,7 +33,7 @@ form(method='GET' action='/logout' align="right")
   br
   br
 // effdiv
-.container
+.col-md-6
   canvas#chart2(width='800', height='450')
   br
   br
@@ -43,7 +41,7 @@ form(method='GET' action='/logout' align="right")
   br
   br
 // cost
-.container
+.col-md-6
   canvas#chart4(width='800', height='450')
 script.
   //ttr
@@ -56,13 +54,12 @@ script.
   type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
   data: {
   labels: ["Planned", "Actual"],
-  datasets: [
-  {
+  datasets: [{
   label: "Days",
-  data: [#{ttr}],
+  data: [],
   //backgroundColor:'blue',
   //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-  backgroundColor: ["#3e95cd","#3e95cd"]
+  backgroundColor: ["#3e95cd", "#3e95cd"]
   // borderWidth:1,
   // borderColor:'grey',
   // hoverBorderWidth:3,
@@ -73,12 +70,12 @@ script.
   scales: {
   xAxes: [{
   barPercentage: 0.3,
-  gridLines:{
-  display:true
+  gridLines: {
+  display: true
   }
   }],
-  yAxes:[{
-  stacked:true,
+  yAxes: [{
+  stacked: true,
   // gridLines:{
   //   display:false
   // }
@@ -86,9 +83,9 @@ script.
   },
   legend: {
   display: false,
-  position:'right',
-  lables:{
-  fontColor:'black'
+  position: 'right',
+  lables: {
+  fontColor: 'black'
   }
   },
   title: {
@@ -96,16 +93,16 @@ script.
   text: 'TTR',
   //fontsize:100
   },
-  layout:{
-  padding:{
-  left:50,
-  right:0,
-  bottom:0,
-  top:0
+  layout: {
+  padding: {
+  left: 50,
+  right: 0,
+  bottom: 0,
+  top: 0
   }
   },
-  tooltips:{
-  enabled:true
+  tooltips: {
+  enabled: true
   }
   }
   });
@@ -120,17 +117,15 @@ script.
   type: 'bar',
   data: {
   labels: ["Lead Mapper", "Mappers", "Lead Implementer", "Implementer", "PM"],
-  datasets: [
-  {
+  datasets: [{
   label: "Actual",
   backgroundColor: "#3e95cd",
-  data: [#{effdevac}]
+  data: []
   }, {
   label: "Planned",
   backgroundColor: "#ff9800",
-  data: [#{effdevpl}]
-  }
-  ]
+  data: []
+  }]
   },
   options: {
   title: {
@@ -150,17 +145,15 @@ script.
   type: 'bar',
   data: {
   labels: ["Discovery Phase", "Design Phase", "Environment Readiness Phase", "Development Phase", "Testing Phase", "Go-live"],
-  datasets: [
-  {
+  datasets: [{
   label: "Actual",
   backgroundColor: "#3e95cd",
-  data: [#{svpwact}] 
+  data: []
   }, {
   label: "Planned",
   backgroundColor: "#ff9800",
-  data: [#{svpwplan}] 
-  }
-  ]
+  data: []
+  }]
   },
   options: {
   title: {
@@ -180,13 +173,12 @@ script.
   type: 'bar', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
   data: {
   labels: ["Planned ", "Actual"],
-  datasets: [
-  {
+  datasets: [{
   label: "in Rupee",
-  data: [2478,5267],
+  data: [2478, 5267],
   //backgroundColor:'blue',
   //backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-  backgroundColor: ["#3e95cd","#3e95cd"]
+  backgroundColor: ["#3e95cd", "#3e95cd"]
   // borderWidth:1,
   // borderColor:'grey',
   // hoverBorderWidth:3,
@@ -201,9 +193,9 @@ script.
   },
   legend: {
   display: false,
-  position:'right',
-  lables:{
-  fontColor:'black'
+  position: 'right',
+  lables: {
+  fontColor: 'black'
   }
   },
   title: {
@@ -211,18 +203,17 @@ script.
   text: 'COST',
   //fontsize:100
   },
-  layout:{
-  padding:{
-  left:50,
-  right:0,
-  bottom:0,
-  top:0
+  layout: {
+  padding: {
+  left: 50,
+  right: 0,
+  bottom: 0,
+  top: 0
   }
   },
-  tooltips:{
-  enabled:true
+  tooltips: {
+  enabled: true
   }
   }
   });
-
 script(type='text/javascript', src='/javascripts/timeout.js')
