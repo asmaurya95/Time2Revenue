@@ -14,49 +14,7 @@ Install [couchDB](https://couchdb.apache.org/) and make sure the server is up an
 
 This would open [fauxton](https://couchdb.apache.org/fauxton-visual-guide/index.html), a native web based interface built into couchDB.
 
-- Create a database named <code> ibm </code> and create a few documents containing the user credentials, username(email), group(program-manager / service-manager) and password.
-
-Program-Manager (Sample) :
-```
-{  
-  "_id": "<predefined by couchdb>",
-
-  "_rev": "<predefined by couchdb>",
-
-  "username": "pm@ibm.com",
-
-  "password": 1234,
-
-  "group": "program-manager"
-}
-```
-
-Service-Manager (Sample) :
-```
-{  
-  "_id": "<predefined by couchdb>",
-
-  "_rev": "<predefined by couchdb>",
-
-  "username": "sm@ibm.com",
-
-  "password": 1234,
-
-  "group": "service-manager"
-}
-```
-- Create a [view](http://docs.couchdb.org/en/2.1.1/ddocs/views/intro.html) with design-name <code> users </code> and view-name <code> login </code>.
-
-Map function :
-
-```
-function (doc) {
-    emit(doc.username, doc);
-}
-```
-This view would emit username as <code> key </code> and document as <code> value </code>.
-
-- Create another database named <code> projects </code> where all project data will be stored.
+- Create a database named <code> projects </code> where all project data will be stored.
 
 - Create a [view](http://docs.couchdb.org/en/2.1.1/ddocs/views/intro.html) with design-name <code> findproject </code> and view-name <code> findbyname </code>.
 
@@ -67,6 +25,7 @@ function (doc) {
     emit(doc.proj_name, doc);
 }
 ```
+Note: This view is required to make queries on projects database.
 
 #### To install, clone the repository and install node dependencies :
 
